@@ -4,7 +4,8 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 import com.jolla.gallery 1.0
-import "components" as AdvCam
+//import "components" as AdvCam
+import "components"
 
 MediaSourcePage { id: root
     SilicaFlickable { id: flick
@@ -12,12 +13,14 @@ MediaSourcePage { id: root
         anchors.fill: parent
         Column { id: content
             width: parent.width
-            header: PageHeader {
-                title: view.model.userDisplayName || view.model.userId
+            PageHeader {
+                //: "Advanced Camera"
+                //% "Advanced Camera"
+                title: qsTrId("gallery-extension-advancedcam-title")
             }
             SilicaGridView { id: view
                 model: root.model
-                delegate: AdvCam.PhotoDelegate {
+                delegate: AdvCamPhotoDelegate {
                     width: GridView.view.width
                     height: Theme.itemSizeLarge
                 }

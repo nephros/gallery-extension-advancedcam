@@ -8,10 +8,5 @@
         <extracomment>&quot;Advanced Camera&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
-    <message id="gallery-extension-advancedcam-source-title">
-        <source>Advanced Camera Photos</source>
-        <extracomment>&quot;Advanced Camera Photos&quot;</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>

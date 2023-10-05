@@ -10,7 +10,7 @@ TRANSLATIONS += translations/$${TARGET}-en.ts \
                 translations/$${TARGET}-de.ts
 
 qml.files = $$TARGET
-qml.path = $$PREFIX/share/$$TARGET
+qml.path = $$PREFIX/share
 INSTALLS += qml
 
 mediasource.files = mediasource/AdvCamMediaSource.qml

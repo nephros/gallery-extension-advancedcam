@@ -7,7 +7,7 @@ import com.jolla.gallery 1.0
 MediaSourceIcon { id: root
     Image {
         anchors.fill: parent
-        source: "image://theme/harbour-advenced-camera"
+        source: "image://theme/harbour-advanced-camera"
         fillMode: Image.PreserveAspectCrop
         clip: true
     }
