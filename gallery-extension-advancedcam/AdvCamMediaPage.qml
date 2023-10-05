@@ -10,7 +10,7 @@ MediaSourcePage { id: root
     SilicaFlickable { id: flick
 
         anchors.fill: parent
-        Column { is content
+        Column { id: content
             width: parent.width
             header: PageHeader {
                 title: view.model.userDisplayName || view.model.userId
@@ -23,7 +23,7 @@ MediaSourcePage { id: root
                 }
             }
         }
-
     }
+}
 
 // vim: ft=javascript ts=4 st=4 sw=4 expandtab

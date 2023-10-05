@@ -11,7 +11,7 @@ MediaSource { id: root
     //% "Advanced Camera"
     title: qsTrId("gallery-extension-advancedcam-title")
 
-    icon: page: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaIcon.qml")
+    icon: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaIcon.qml")
 
     model: MediaSourceModel { id: advcamSourceModel
         //: "Advanced Camera Photos"
