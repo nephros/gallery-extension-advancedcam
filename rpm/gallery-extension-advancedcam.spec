@@ -13,9 +13,10 @@ Version:    0.9.0
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
-URL:        https://to-be-defined.local/
+URL:        https://github.com/nephros/gallery-extension-advancedcam
 Source0:    %{name}-%{version}.tar.gz
 Source100:  gallery-extension-advancedcam.yaml
+Source101:  gallery-extension-advancedcam-rpmlintrc
 Requires:   sailfish-components-gallery-qt5
 BuildRequires:  libsailfishapp-devel
 BuildRequires:  qt5-qmake
@@ -24,8 +25,30 @@ BuildRequires:  qml-rpm-macros
 %description
 %{summary}.
 
+%if "%{?vendor}" == "chum"
+Title: Gallery Extension for Piggz-o-vision
+Type: desktop-application
+DeveloperName: Peter G.
+DeveloperLogin: nephros
+Categories:
+ - Media
+Custom:
+  Repo: %{url}
+PackageIcon: %{url}/master/icons/%{name}.svg
+Screenshots:
+ - %{url}/raw/metadata/screenshots/screenshot1.png
+ - %{url}/raw/metadata/screenshots/screenshot2.png
+ - %{url}/raw/metadata/screenshots/screenshot3.png
+Links:
+  Homepage: %{url}
+  Help: %{url}/discussions
+  Bugtracker: %{url}/issues
+  Donation: https://openrepos.net/donate
+%endif
+
+
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}/upstream
 
 # >> setup
 # << setup
@@ -34,7 +57,8 @@ BuildRequires:  qml-rpm-macros
 # >> build pre
 # << build pre
 
-%configure --disable-static
+%qmake5 
+
 make %{?_smp_mflags}
 
 # >> build post
@@ -44,12 +68,14 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-%make_install
+%qmake5_install
 
 # >> install post
 # << install post
 
 %files
 %defattr(-,root,root,-)
+%license LICENSE
+%{_datadir}/jolla-gallery/mediasources/%{name}
 # >> files
 # << files

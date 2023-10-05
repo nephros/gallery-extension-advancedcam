@@ -4,9 +4,41 @@ Version: 0.9.0
 Release: 0
 Group: Qt/Qt
 License: GPLv2
-URL: https://to-be-defined.local/
+URL: https://github.com/nephros/gallery-extension-advancedcam
+SCM: https://github.com/nephros/gallery-extension-advancedcam
 Sources:
     - '%{name}-%{version}.tar.gz'
+Description: |
+    %{summary}.
+
+    %if "%{?vendor}" == "chum"
+    Title: Gallery Extension for Piggz-o-vision
+    Type: desktop-application
+    DeveloperName: Peter G.
+    DeveloperLogin: nephros
+    Categories:
+     - Media
+    Custom:
+      Repo: %{url}
+    PackageIcon: %{url}/master/icons/%{name}.svg
+    Screenshots:
+     - %{url}/raw/metadata/screenshots/screenshot1.png
+     - %{url}/raw/metadata/screenshots/screenshot2.png
+     - %{url}/raw/metadata/screenshots/screenshot3.png
+    Links:
+      Homepage: %{url}
+      Help: %{url}/discussions
+      Bugtracker: %{url}/issues
+      Donation: https://openrepos.net/donate
+    %endif
+
+SetupOptions: -q -n %{name}-%{version}/upstream
+RpmLintIgnore:
+  - 'summary-too-long'
+  - 'no-changelogname-tag'
+  - 'invalid-url'
+  - 'desktopfile-without-binary'
+  - 'explicit-lib-dependency'
 Requires:
     - sailfish-components-gallery-qt5
 PkgBR:
@@ -17,3 +49,10 @@ PkgBR:
 
 #PkgConfigBR:
 #    - ^^^
+
+Configure: none
+Builder: qmake5
+NoIconCache: true
+Files:
+  - '%license LICENSE'
+  - '%{_datadir}/jolla-gallery/mediasources/%{name}'
