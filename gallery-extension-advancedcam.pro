@@ -9,8 +9,8 @@ SOURCES += \
 TRANSLATIONS += translations/$${TARGET}-en.ts \
                 translations/$${TARGET}-de.ts
 
-qml.files = $$TARGET
-qml.path = $$PREFIX/share
+qml.files = advancedcam
+qml.path = $$LIBDIR/qt5/qml/com/jolla/gallery
 INSTALLS += qml
 
 mediasource.files = mediasource/AdvCamMediaSource.qml

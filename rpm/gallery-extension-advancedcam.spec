@@ -9,7 +9,7 @@ Name:       gallery-extension-advancedcam
 # << macros
 
 Summary:    Gallery plugin for Advanced Camera
-Version:    0.9.0
+Version:    0.9.1
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
@@ -78,6 +78,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %license LICENSE
 %{_datadir}/jolla-gallery/mediasources/*.qml
-%{_datadir}/%{name}
+%{_datadir}/translations/*.qm
+%{_libdir}/qt5/qml/com/jolla/gallery/advancedcam
 # >> files
 # << files

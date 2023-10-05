@@ -10,6 +10,7 @@ GridItem { id: root
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
         clip: true
+        source: filePath
     }
 }
 

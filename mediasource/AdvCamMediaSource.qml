@@ -8,7 +8,7 @@ import Nemo.FileManager 1.0
 //import com.jolla.gallery.extensions 1.0
 
 MediaSource { id: root
-    page: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaPage.qml")
+    page: StandardPaths.resolveImport("com.jolla.gallery.nextcloud.AdvCamMediaPage")
     //: "Advanced Camera"
     //% "Advanced Camera"
     title: qsTrId("gallery-extension-advancedcam-title")
