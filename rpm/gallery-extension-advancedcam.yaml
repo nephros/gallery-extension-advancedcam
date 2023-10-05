@@ -57,4 +57,5 @@ Builder: qmake5
 NoIconCache: true
 Files:
   - '%license LICENSE'
-  - '%{_datadir}/jolla-gallery/mediasources/%{name}'
+  - '%{_datadir}/jolla-gallery/mediasources/*.qml'
+  - '%{_datadir}/%{name}'

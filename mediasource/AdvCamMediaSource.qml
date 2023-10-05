@@ -6,12 +6,12 @@ import com.jolla.gallery 1.0
 import com.jolla.gallery.extensions 1.0
 
 MediaSource { id: root
-    page: Qt.resolvedUrl("/usr/share/sailfish-gallery-extension-advancedcam/pages/AdvCamMediaPage.qml")
+    page: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaPage.qml")
     //: "Advanced Camera"
     //% "Advanced Camera"
     title: qsTrId("sailfish-galley-extension-advancedcam-title")
 
-    icon: Qt.resolvedUrl("AdvCamMediaIcon.qml")
+    icon: page: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaIcon.qml")
 
     model: MediaSourceModel { id: advcamSourceModel
         //: "Advanced Camera Photos"

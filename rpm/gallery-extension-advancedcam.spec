@@ -80,6 +80,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %license LICENSE
-%{_datadir}/jolla-gallery/mediasources/%{name}
+%{_datadir}/jolla-gallery/mediasources/*.qml
+%{_datadir}/%{name}
 # >> files
 # << files
