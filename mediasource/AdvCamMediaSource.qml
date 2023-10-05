@@ -3,40 +3,40 @@
 
 import QtQuick 2.6
 import Sailfish.Silica 1.0
+import Sailfish.Gallery 1.0
 import com.jolla.gallery 1.0
+import QtDocGallery 5.0
 import Nemo.FileManager 1.0
 //import com.jolla.gallery.extensions 1.0
 
 MediaSource { id: root
-    page: StandardPaths.resolveImport("com.jolla.gallery.nextcloud.AdvCamMediaPage")
+
     //: "Advanced Camera"
     //% "Advanced Camera"
     title: qsTrId("gallery-extension-advancedcam-title")
+    icon: StandardPaths.resolveImport("com.jolla.gallery.advancedcam.AdvCamMediaIcon")
+    page: "../pages/GalleryGridPage.qml"
 
-    icon: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaIcon.qml")
-    //property bool ready: true
-    property bool applicationActive: Qt.application.active
-    //property alias count: advcamSourceModel.count
-    ready: FileEngine.exists(advcamStorage.path)
-    count: advcamStorage.count
-    model: FileModel{ id: advcamStorage
-        path: StandardPaths.pictures + '/AdvancedCam'
-    }
     type: MediaSource.Photos
-    /*
-    MediaSourceModel { id: advcamSourceModel
-        //: "Advanced Camera Photos"
-        //% "Advanced Camera Photos"
-        // title: qsTrId("gallery-extension-advancedcam-source-title")
-        //type: MediaSource.Photos
-        //ready: true
 
+    property bool applicationActive: Qt.application.active
+
+    property alias count: advcamStorage.count
+    ready: FileEngine.exists(advcamStorage.path)
+    busy: model.status == DocumentGalleryModel.Active
+
+    model: DocumentGalleryModel{ id: advcamStorage
+        readonly property string path: StandardPaths.pictures + '/AdvancedCam'
+        rootType: DocumentGallery.Image
+        properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]
+        sortProperties: ["-dateTaken"]
+        autoUpdate: true
+        filter: GalleryStartsWithFilter { property: "filePath"; value: advcamStorage.path }
     }
 
     Component.onCompleted: {
-        advcamSourceModel.refresh()
+        advcamStorage.refresh()
     }
-    */
 }
 
 // vim: ft=javascript ts=4 st=4 sw=4 expandtab

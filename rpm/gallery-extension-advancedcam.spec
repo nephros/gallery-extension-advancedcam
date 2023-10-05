@@ -9,7 +9,7 @@ Name:       gallery-extension-advancedcam
 # << macros
 
 Summary:    Gallery plugin for Advanced Camera
-Version:    0.9.1
+Version:    0.10.0
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
