@@ -12,13 +12,14 @@ MediaSource { id: root
     title: qsTrId("gallery-extension-advancedcam-title")
 
     icon: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaIcon.qml")
+    property bool ready
 
     model: MediaSourceModel { id: advcamSourceModel
         //: "Advanced Camera Photos"
         //% "Advanced Camera Photos"
         title: qsTrId("gallery-extension-advancedcam-source-title")
         type: MediaSource.Photos
-        ready: true
+        //ready: true
     }
 }
 
