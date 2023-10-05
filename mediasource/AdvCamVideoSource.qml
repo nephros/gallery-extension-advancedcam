@@ -13,7 +13,7 @@ MediaSource { id: root
     //: "Advanced Camera Videos"
     //% "Advanced Camera Videos"
     title: qsTrId("gallery-extension-advancedcam-title-videos")
-    icon: StandardPaths.resolveImport("com.jolla.gallery.advancedcam.AdvCamMediaIcon")
+    icon: "../pages/VideoIcon.qml"
     page: "../pages/GalleryGridPage.qml"
 
     type: MediaSource.Videos
@@ -33,9 +33,6 @@ MediaSource { id: root
         filter: GalleryStartsWithFilter { property: "filePath"; value: advcamStorage.path }
     }
 
-    Component.onCompleted: {
-        advcamStorage.refresh()
-    }
 }
 
 // vim: ft=javascript ts=4 st=4 sw=4 expandtab
