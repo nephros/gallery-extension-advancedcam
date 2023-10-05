@@ -1,0 +1,19 @@
+Name: gallery-extension-advancedcam
+Summary: Gallery plugin for Advanced Camera
+Version: 0.9.0
+Release: 0
+Group: Qt/Qt
+License: GPLv2
+URL: https://to-be-defined.local/
+Sources:
+    - '%{name}-%{version}.tar.gz'
+Requires:
+    - sailfish-components-gallery-qt5
+PkgBR:
+    - libsailfishapp-devel
+    - qt5-qmake
+    # sailfish-svg2png
+    - qml-rpm-macros
+
+#PkgConfigBR:
+#    - ^^^
