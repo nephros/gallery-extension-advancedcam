@@ -3,11 +3,13 @@ TARGET = gallery-extension-advancedcam
 
 lupdate_only {
 SOURCES += \
-    $$TARGET/*.qml
+    mediasource/*.qml \
+    advancedcam/*.qml \
 }
 
 TRANSLATIONS += translations/$${TARGET}-en.ts \
-                translations/$${TARGET}-de.ts
+                translations/$${TARGET}-de.ts \
+                translations/$${TARGET}-ru.ts
 
 qml.files = advancedcam
 qml.path = $$LIBDIR/qt5/qml/com/jolla/gallery
