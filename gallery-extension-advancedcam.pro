@@ -10,10 +10,10 @@ TRANSLATIONS += translations/$${TARGET}-en.ts \
                 translations/$${TARGET}-de.ts
 
 qml.files = $$TARGET
-qml.path = $$PREFIX/share/$$TARGET/
+qml.path = $$PREFIX/share/$$TARGET
 INSTALLS += qml
 
-mediasource.files = mediasource
+mediasource.files = mediasource/AdvCamMediaSource.qml
 mediasource.path = $$PREFIX/share/jolla-gallery/mediasources
 INSTALLS += mediasource
 
