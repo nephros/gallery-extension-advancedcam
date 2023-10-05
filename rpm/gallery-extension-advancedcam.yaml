@@ -40,15 +40,17 @@ RpmLintIgnore:
   - 'desktopfile-without-binary'
   - 'explicit-lib-dependency'
 Requires:
-    - sailfish-components-gallery-qt5
+  - sailfish-components-gallery-qt5
 PkgBR:
-    - libsailfishapp-devel
-    - qt5-qmake
-    # sailfish-svg2png
-    - qml-rpm-macros
-
-#PkgConfigBR:
-#    - ^^^
+  - qt5-qmake
+  - qt5-qttools-linguist
+  # sailfish-svg2png
+  - qml-rpm-macros
+PkgConfigBR:
+  - Qt5Core
+  - Qt5Qml
+  - Qt5Quick
+  - sailfishapp
 
 Configure: none
 Builder: qmake5

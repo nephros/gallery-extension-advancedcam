@@ -18,8 +18,12 @@ Source0:    %{name}-%{version}.tar.gz
 Source100:  gallery-extension-advancedcam.yaml
 Source101:  gallery-extension-advancedcam-rpmlintrc
 Requires:   sailfish-components-gallery-qt5
-BuildRequires:  libsailfishapp-devel
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(sailfishapp)
 BuildRequires:  qt5-qmake
+BuildRequires:  qt5-qttools-linguist
 BuildRequires:  qml-rpm-macros
 
 %description
