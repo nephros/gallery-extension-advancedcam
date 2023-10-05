@@ -9,14 +9,14 @@ MediaSource { id: root
     page: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaPage.qml")
     //: "Advanced Camera"
     //% "Advanced Camera"
-    title: qsTrId("sailfish-galley-extension-advancedcam-title")
+    title: qsTrId("gallery-extension-advancedcam-title")
 
     icon: page: Qt.resolvedUrl("/usr/share/gallery-extension-advancedcam/AdvCamMediaIcon.qml")
 
     model: MediaSourceModel { id: advcamSourceModel
         //: "Advanced Camera Photos"
         //% "Advanced Camera Photos"
-        title: qsTrId("sailfish-galley-extension-advancedcam-source-title")
+        title: qsTrId("gallery-extension-advancedcam-source-title")
         type: MediaSource.Photos
         ready: true
     }
