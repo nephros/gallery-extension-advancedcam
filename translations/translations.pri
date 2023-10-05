@@ -10,8 +10,7 @@ qm.CONFIG   = target_predeps no_link
 QMAKE_EXTRA_COMPILERS += qm
 
 translations.files = $$OUT_PWD/translations/*.qm
-# translations.path  = $$PREFIX/share/$$TARGET/translations
-translations.path  = $$PREFIX/share/jolla-gallery/mediasources/$$TARGET
+translations.path  = $$PREFIX/share/$$TARGET/translations
 translations.CONFIG += no_check_exist
 
 INSTALLS += translations
