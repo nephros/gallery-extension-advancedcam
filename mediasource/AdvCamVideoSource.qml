@@ -10,9 +10,7 @@ import Nemo.FileManager 1.0
 
 MediaSource { id: root
 
-    //: "Advanced Camera Videos"
-    //% "Advanced Camera Videos"
-    title: qsTrId("gallery-extension-advancedcam-title-videos")
+    title: qsTr("Advanced Camera Videos")
     icon: "../pages/VideoIcon.qml"
     page: "../pages/GalleryGridPage.qml"
 

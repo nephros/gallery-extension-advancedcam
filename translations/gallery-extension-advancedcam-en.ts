@@ -2,23 +2,26 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name></name>
-    <message id="gallery-extension-advancedcam-title">
-        <location filename="../advancedcam/AdvCamMediaPage.qml" line="15"/>
+    <name>AdvCamMediaPage</name>
+    <message>
+        <location filename="../advancedcam/AdvCamMediaPage.qml" line="13"/>
         <source>Advanced Camera</source>
-        <extracomment>&quot;Advanced Camera&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
-    <message id="gallery-extension-advancedcam-title-photos">
-        <location filename="../mediasource/AdvCamPhotoSource.qml" line="15"/>
-        <source>Advanced Camera</source>
-        <extracomment>&quot;Advanced Camera&quot;</extracomment>
+</context>
+<context>
+    <name>AdvCamPhotoSource</name>
+    <message>
+        <location filename="../mediasource/AdvCamPhotoSource.qml" line="13"/>
+        <source>Advanced Camera Photos</source>
         <translation type="unfinished"></translation>
     </message>
-    <message id="gallery-extension-advancedcam-title-videos">
-        <location filename="../mediasource/AdvCamVideoSource.qml" line="15"/>
+</context>
+<context>
+    <name>AdvCamVideoSource</name>
+    <message>
+        <location filename="../mediasource/AdvCamVideoSource.qml" line="13"/>
         <source>Advanced Camera Videos</source>
-        <extracomment>&quot;Advanced Camera Videos&quot;</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -10,9 +10,7 @@ MediaSourcePage { id: root
     Gallery.ImageGridView { id: view
         anchors.fill: parent
         header: PageHeader { id: head
-            //: "Advanced Camera"
-            //% "Advanced Camera"
-            title: qsTrId("gallery-extension-advancedcam-title")
+            title: qsTr("Advanced Camera")
         }
         model: root.model
     }
