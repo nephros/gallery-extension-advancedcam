@@ -32,7 +32,7 @@ Description: |
       Donation: https://openrepos.net/donate
     %endif
 
-SetupOptions: -q -n %{name}-%{version}/upstream
+#SetupOptions: -q -n %{name}-%{version}/upstream
 RpmLintIgnore:
   - 'summary-too-long'
   - 'no-changelogname-tag'
