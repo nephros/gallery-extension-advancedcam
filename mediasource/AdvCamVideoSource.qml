@@ -7,17 +7,16 @@ import Sailfish.Gallery 1.0
 import com.jolla.gallery 1.0
 import QtDocGallery 5.0
 import Nemo.FileManager 1.0
-//import com.jolla.gallery.extensions 1.0
 
 MediaSource { id: root
 
-    //: "Advanced Camera"
-    //% "Advanced Camera"
-    title: qsTrId("gallery-extension-advancedcam-title")
+    //: "Advanced Camera Videos"
+    //% "Advanced Camera Videos"
+    title: qsTrId("gallery-extension-advancedcam-title-videos")
     icon: StandardPaths.resolveImport("com.jolla.gallery.advancedcam.AdvCamMediaIcon")
     page: "../pages/GalleryGridPage.qml"
 
-    type: MediaSource.Photos
+    type: MediaSource.Videos
 
     property bool applicationActive: Qt.application.active
 
@@ -26,10 +25,10 @@ MediaSource { id: root
     busy: model.status == DocumentGalleryModel.Active
 
     model: DocumentGalleryModel{ id: advcamStorage
-        readonly property string path: StandardPaths.pictures + '/AdvancedCam'
-        rootType: DocumentGallery.Image
-        properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]
-        sortProperties: ["-dateTaken"]
+        readonly property string path: StandardPaths.videos + '/AdvancedCam'
+        rootType: DocumentGallery.Video
+        properties: ["url", "mimeType", "title", "lastModified", "orientation", "duration"]
+        sortProperties: ["-lastModified"]
         autoUpdate: true
         filter: GalleryStartsWithFilter { property: "filePath"; value: advcamStorage.path }
     }
