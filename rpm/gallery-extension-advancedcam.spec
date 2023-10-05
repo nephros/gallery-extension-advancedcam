@@ -13,11 +13,12 @@ Version:    0.9.0
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
+BuildArch:  noarch
 URL:        https://github.com/nephros/gallery-extension-advancedcam
 Source0:    %{name}-%{version}.tar.gz
 Source100:  gallery-extension-advancedcam.yaml
 Source101:  gallery-extension-advancedcam-rpmlintrc
-Requires:   sailfish-components-gallery-qt5
+Requires:   sailfish-components-gallery-qt5 >= 1.1.9
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)

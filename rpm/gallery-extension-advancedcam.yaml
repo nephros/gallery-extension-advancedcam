@@ -38,9 +38,8 @@ RpmLintIgnore:
   - 'no-changelogname-tag'
   - 'invalid-url'
   - 'desktopfile-without-binary'
-  - 'explicit-lib-dependency'
 Requires:
-  - sailfish-components-gallery-qt5
+  - sailfish-components-gallery-qt5 >= 1.1.9
 PkgBR:
   - qt5-qmake
   - qt5-qttools-linguist
@@ -51,9 +50,9 @@ PkgConfigBR:
   - Qt5Qml
   - Qt5Quick
   - sailfishapp
-
 Configure: none
 Builder: qmake5
+BuildArch: noarch
 NoIconCache: true
 Files:
   - '%license LICENSE'
