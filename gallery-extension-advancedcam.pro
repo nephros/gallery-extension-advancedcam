@@ -1,12 +1,9 @@
-
-TARGET = "gallery-extension-advancedcam"
-CONFIG += sailfishapp_no_deploy_qml
-QT -= gui
+TEMPLATE = aux
+TARGET = gallery-extension-advancedcam
 
 lupdate_only {
 SOURCES += \
     $$TARGET/*.qml
-
 }
 
 TRANSLATIONS += translations/$${TARGET}-en.ts \
