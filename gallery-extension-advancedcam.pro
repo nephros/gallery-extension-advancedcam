@@ -15,7 +15,7 @@ qml.files = advancedcam
 qml.path = $$LIBDIR/qt5/qml/com/jolla/gallery
 INSTALLS += qml
 
-mediasource.files = mediasource/AdvCamMediaSource.qml
+mediasource.files = mediasource/*.qml
 mediasource.path = $$PREFIX/share/jolla-gallery/mediasources
 INSTALLS += mediasource
 
