@@ -30,17 +30,41 @@
 <context>
     <name>AdvCamPhotoSource</name>
     <message>
-        <location filename="../mediasource/AdvCamPhotoSource.qml" line="13"/>
         <source>Advanced Camera Photos</source>
-        <translation>Erweiterte Kamera Fotos</translation>
+        <translation type="vanished">Erweiterte Kamera Fotos</translation>
+    </message>
+    <message>
+        <source>Advanced Camera
+Photos</source>
+        <comment>Please preserve the line break, it&apos;s important for correct display</comment>
+        <translation type="vanished">Erweiterte Kamera
+Fotos</translation>
+    </message>
+    <message>
+        <location filename="../mediasource/AdvCamPhotoSource.qml" line="13"/>
+        <source>Advanced Camera&lt;br /&gt;Photos</source>
+        <comment>Please preserve the line break, it&apos;s important for correct display</comment>
+        <translation>Erweiterte Kamera&lt;br /&gt;Fotos</translation>
     </message>
 </context>
 <context>
     <name>AdvCamVideoSource</name>
     <message>
-        <location filename="../mediasource/AdvCamVideoSource.qml" line="13"/>
         <source>Advanced Camera Videos</source>
-        <translation>Erweiterte Kamera Filme</translation>
+        <translation type="vanished">Erweiterte Kamera Filme</translation>
+    </message>
+    <message>
+        <source>Advanced Camera
+Videos</source>
+        <comment>Please preserve the line break, it&apos;s important for correct display</comment>
+        <translation type="vanished">Erweiterte Kamera
+Filme</translation>
+    </message>
+    <message>
+        <location filename="../mediasource/AdvCamVideoSource.qml" line="13"/>
+        <source>Advanced Camera&lt;br /&gt;Videos</source>
+        <comment>Please preserve the line break, it&apos;s important for correct display</comment>
+        <translation>Erweiterte Kamera&lt;br /&gt;Filme</translation>
     </message>
 </context>
 </TS>

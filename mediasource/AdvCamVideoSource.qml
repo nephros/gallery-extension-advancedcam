@@ -10,7 +10,7 @@ import Nemo.FileManager 1.0
 
 MediaSource { id: root
 
-    title: qsTr("Advanced Camera Videos")
+    title: qsTr("Advanced Camera\nVideos", "Please preserve the line break, it's important for correct display")
     icon: "../pages/VideoIcon.qml"
     page: "../pages/GalleryGridPage.qml"
 
