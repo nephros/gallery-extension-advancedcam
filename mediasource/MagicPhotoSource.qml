@@ -1,11 +1,14 @@
 // Copyright (c) Peter G. sailfish@nephros.org
 // SPDX-License-Identifier: GPLv2
 
-import QtQuick 2.0
+import QtQuick 2.6
+import QtQml.Models 2.3
 import Sailfish.Silica 1.0
+import Sailfish.Gallery 1.0
 import com.jolla.gallery 1.0
 import com.jolla.gallery.extensions 1.0
-import Nemo.configuration 1.0
+import QtDocGallery 5.0
+import Nemo.Configuration 1.0
 
 /*! \qmlmodule com.jolla.gallery.magic
     \brief A Gallery plugin which displays dynamic entries in the Jolla Gallery application.
@@ -32,6 +35,48 @@ import Nemo.configuration 1.0
 
     \note Localization for displayNames nit currently not supperted.
 
+    For example, you may set the key form a QML app using something like this:
+
+    \code
+    import QtQuick 2.6
+    import Nemo.Configuration 1.0
+
+    ...
+
+    ConfigurationValue {
+        id: photoSources
+        key: "/apps/jolla-gallery/extrapaths/pictures"
+    }
+    function setPhotoSource(name, path) {
+        if (!!photoSources.value) {
+            const existing = {};
+            try {
+                existing = JSON.parse(photoSources.value);
+                const entry = {
+                    "displayName": name,
+                    "path": path
+                }
+                existing.push(entry)
+                photoSources.value = JSON.stringify(existing)
+            } catch (e) {
+                return
+            }
+        } else {
+            const entry = [
+                {
+                    "displayName": name,
+                    "path": path
+                },
+            ]
+            photoSources.value = JSON.stringify(entry)
+        }
+        photoSources.sync()
+    }
+
+    ...
+
+    \endcode
+
 */
 /*! \qmltype MagicPhotoSource
     \inqmlmodule com.jolla.gallery.magic
@@ -43,42 +88,53 @@ MediaSource {
     title: qsTr("Magic")
     //icon: StandardPaths.resolveImport("com.jolla.gallery.nextcloud.NextcloudGalleryIcon")
     //model: magicAlbums
-    model: sourceModel
-    ready: sourceModel.count > 0
+    model: galleryModel
+    count: Math.max(sourceModel.count, galleryModel.count)
+    ready: (sourceModel.count > 0)  || (galleryModel.count > 0)
+    //ready: sourceModel.count > 0 && ( instantiator.count == sourceModel.count)
     //ready: nextcloudUsers.count > 0
     page: StandardPaths.resolveImport("com.jolla.gallery.magic.MagicAlbumsPage")
 
     property bool applicationActive: Qt.application.active
 
-    Instantiator { id: instantiator
+    property Instantiator instantiator: Instantiator {
         active: false
         delegate: DocumentGalleryModel {
+            property string albumName: model.displayName
             rootType: DocumentGallery.Image
             properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]
             sortProperties: ["-dateTaken"]
             autoUpdate: true
-            filter: GalleryStartsWithFilter { property: "filePath"; value: model.magicpath }
+            filter: GalleryStartsWithFilter { property: "filePath"; value: StandardPaths.home + "/" + model.path }
         }
-        OnActiveChanged: console.debug("Instantiator is now active:", active)
-        OnObjectAdded: function(i, o) { console.debug("Instantiator added:", JSON.stringify(o)) }
+        onActiveChanged: console.debug("Instantiator is now active:", active)
+        onObjectAdded: function(i, o) {
+            galleryModel.append(o)
+            console.debug("Instantiator added:", JSON.stringify(o))
+        }
     }
-    ListModel { id: sourceModel }
-    ConfigurationValue {
-        id: photoSources
+
+    property ListModel sourceModel: ListModel{}
+    property ObjectModel galleryModel: ObjectModel{}
+
+    property ConfigurationValue photoSources: ConfigurationValue {
         key: "/apps/jolla-gallery/extrapaths/pictures"
-        defaultValue: JSON.stringufy([ { }, ])
     }
     Component.onCompleted: {
-        var sources = JSON.parse(photoSources.value())
-        console.debug("Magic Key has values:", sources)
+        var sources
+        try {
+            sources = JSON.parse(photoSources.value)
+        } catch (e) {
+            console.warn("Could not parse magic values:", photoSources.value )
+            return
+        }
         if (sources.length > 0) {
-        sources.forEach(function(e) {
-            const o = { magicpath: e }
-            console.debug("Äppending:",  JSON.stringify(o))
-            sourceModel.append(e)
-        })
-        instantiator.model = sourceModel
-        instantiator.active = true
+            sources.forEach(function(e) {
+                console.debug("Appending:",  JSON.stringify(e))
+                sourceModel.append(e)
+            })
+            instantiator.model = sourceModel
+            instantiator.active = true
         } else {
             console.info("No paths in magic key")
         }
