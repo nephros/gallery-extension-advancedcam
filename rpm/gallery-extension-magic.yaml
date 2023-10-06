@@ -1,0 +1,61 @@
+Name: gallery-extension-magic
+Summary: Gallery plugin for automagic paths
+Version: 0.9.0
+Release: 0
+Group: Qt/Qt
+License: GPLv2
+URL: https://github.com/nephros/gallery-extension-advancedcam
+SCM: https://github.com/nephros/gallery-extension-advancedcam
+Sources:
+    - '%{name}-%{version}.tar.gz'
+Description: |
+    %{summary}.
+
+    %if "%{?vendor}" == "chum"
+    Title: Magic Gallery Extension
+    Type: desktop-application
+    DeveloperName: Peter G.
+    DeveloperLogin: nephros
+    Categories:
+     - Media
+    Custom:
+      Repo: %{url}
+    PackageIcon: %{url}/master/icons/%{name}.svg
+    Screenshots:
+     - %{url}/raw/metadata/screenshots/screenshot1.png
+     - %{url}/raw/metadata/screenshots/screenshot2.png
+     - %{url}/raw/metadata/screenshots/screenshot3.png
+    Links:
+      Homepage: %{url}
+      Help: %{url}/discussions
+      Bugtracker: %{url}/issues
+      Donation: https://openrepos.net/donate
+    %endif
+
+#SetupOptions: -q -n %{name}-%{version}/upstream
+RpmLintIgnore:
+  - 'summary-too-long'
+  - 'no-changelogname-tag'
+  - 'invalid-url'
+  - 'desktopfile-without-binary'
+Requires:
+  - sailfish-components-gallery-qt5 >= 1.1.9
+PkgBR:
+  - qt5-qmake
+  - qt5-qttools-linguist
+  # sailfish-svg2png
+  - qml-rpm-macros
+#PkgConfigBR:
+#  - Qt5Core
+#  - Qt5Qml
+#  - Qt5Quick
+#  - sailfishapp
+Configure: none
+Builder: qmake5
+BuildArch: noarch
+NoIconCache: true
+Files:
+  - '%license LICENSE'
+  - '%{_datadir}/jolla-gallery/mediasources/*.qml'
+  - '%{_datadir}/translations/*.qm'
+  - '%{_libdir}/qt5/qml/com/jolla/gallery/magic'
