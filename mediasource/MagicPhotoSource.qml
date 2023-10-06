@@ -109,10 +109,10 @@ MediaSource {
         if (sources.length > 0) {
             sources.forEach(function(e) {
                 if (FileEngine.exists(StandardPaths.home + "/" + e.path)) {
-                    console.debug("Appending to source model:",  JSON.stringify(e))
+                    console.info("Appending to source model:",  e.path)
                     sourceModel.append(e)
                 } else {
-                    console.debug("Specified path does not exist, not appending.")
+                    console.warn("Specified path does not exist, not appending.")
                 }
             })
         } else {

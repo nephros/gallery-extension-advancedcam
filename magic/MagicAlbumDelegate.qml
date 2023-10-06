@@ -14,14 +14,10 @@ BackgroundItem {
     MagicDirItem {
         id: dirItem
 
-        titleLabel.color:(highlighted ? Theme.highlightColor : Theme.primaryColor)
-
         icon {
             source: "icon-m-folder-magic.svg"
-            width: Theme.iconSizeLarge
-            height: Theme.iconSizeLarge
-            sourceSize.height: height
-            sourceSize.width: width
+            width: icon.sourceSize.width
+            height: icon.sourceSize.height
             fillMode: Image.PreserveAspectCrop
         }
 

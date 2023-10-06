@@ -22,28 +22,26 @@ MediaSourcePage {
 
         delegate: MagicAlbumDelegate {
             property string albumPath:  StandardPaths.home + "/" + path
-            onAlbumPathChanged: console.debug("path:", albumPath)
             albumName: displayName.length > 0
                 ? displayName
                 : "Images"
-            imageCount: model.count
+            imageCount: galleryModel.count
             onClicked: {
                 var props = {
-                    "title": displayName
+                    "title": displayName,
+                    "model": galleryModel
                 }
                 pageStack.animatorPush("MagicImagesGridPage.qml", props)
             }
-            property DocumentGalleryModel model: DocumentGalleryModel {
+            property DocumentGalleryModel galleryModel: DocumentGalleryModel {
                 property string albumName: model.displayName
                 rootType: DocumentGallery.Image
                 properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]
                 sortProperties: ["-dateTaken"]
                 autoUpdate: true
                 filter: GalleryStartsWithFilter { property: "filePath"; value: albumPath }
-                Component.onCompleted: console.debug("Discovered %1 photos at %2".arg(count).arg(albumPath))
                 onCountChanged: console.debug("Discovered %1 photos at %2".arg(count).arg(albumPath))
             }
-            Component.onCompleted: console.debug("Dalegate completed for", index, path, displayName)
         }
 
         VerticalScrollDecorator {}

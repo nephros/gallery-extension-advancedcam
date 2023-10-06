@@ -10,7 +10,7 @@ MediaSourcePage { id: root
     property string title
     Gallery.ImageGridView { id: view
         anchors.fill: parent
-        header: PageHeader { id: head; title: root.title }
+        header: PageHeader { id: head; title: root.title + "(" + model.count + ")" }
         model: root.model
     }
 }
