@@ -12,6 +12,7 @@ MediaSourcePage { id: root
         anchors.fill: parent
         header: PageHeader { id: head; title: root.title + "(" + model.count + ")" }
         model: root.model
+        onCountChanged: console.debug("cnt ggg", count)
     }
 }
 

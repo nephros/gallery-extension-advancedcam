@@ -33,7 +33,7 @@ MediaSourcePage {
                 }
                 pageStack.animatorPush("MagicImagesGridPage.qml", props)
             }
-            property DocumentGalleryModel galleryModel: DocumentGalleryModel {
+            DocumentGalleryModel { id: galleryModel
                 property string albumName: model.displayName
                 rootType: DocumentGallery.Image
                 properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]
