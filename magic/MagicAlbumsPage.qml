@@ -40,7 +40,6 @@ MediaSourcePage {
                 properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]
                 sortProperties: ["-dateTaken"]
                 autoUpdate: true
-                type: MediaSource.Photos
                 filter: GalleryStartsWithFilter { property: "filePath"; value: albumPath }
                 onCountChanged: console.debug("Discovered %1 photos at %2".arg(count).arg(albumPath))
             }

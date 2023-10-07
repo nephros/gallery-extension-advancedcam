@@ -92,7 +92,8 @@ MediaSource {
 
     property bool applicationActive: Qt.application.active
 
-
+    // FIXME: add Videos
+    type: MediaSource.Photos
     property ListModel sourceModel: ListModel{}
 
     property ConfigurationValue photoSources: ConfigurationValue {
