@@ -31,7 +31,8 @@ MediaSourcePage {
                     "title": displayName,
                     "model": galleryModel
                 }
-                pageStack.animatorPush("MagicImagesGridPage.qml", props)
+                //pageStack.animatorPush("MagicImagesGridPage.qml", props)
+                pageStack.animatorPush(Qt.resolvedUrl("/usr/share/jolla-gallery/pages/GalleryGridPage.qml"), props)
             }
             DocumentGalleryModel { id: galleryModel
                 property string albumName: model.displayName
