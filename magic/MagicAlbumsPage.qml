@@ -29,7 +29,8 @@ MediaSourcePage {
             onClicked: {
                 var props = {
                     "title": displayName,
-                    "model": galleryModel
+                    "model": galleryModel,
+                    "userData": MediaSource.Photos
                 }
                 //pageStack.animatorPush("MagicImagesGridPage.qml", props)
                 pageStack.animatorPush(Qt.resolvedUrl("/usr/share/jolla-gallery/pages/GalleryGridPage.qml"), props)

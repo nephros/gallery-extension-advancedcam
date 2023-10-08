@@ -15,7 +15,7 @@ BackgroundItem {
         id: dirItem
 
         icon {
-            source: "icon-m-folder-magic.svg"
+            source: "images://theme/icon-m-folder-magic"
             width: icon.sourceSize.width
             height: icon.sourceSize.height
             fillMode: Image.PreserveAspectCrop

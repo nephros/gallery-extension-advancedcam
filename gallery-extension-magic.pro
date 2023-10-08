@@ -21,3 +21,12 @@ INSTALLS += mediasource
 OTHER_FILES += $$files(rpm/*)
 
 include(translations/translations.pri)
+
+# theme icons:
+CONFIG += sailfish-svg2png
+SAILFISH_SVG2PNG.profiles += 2.5
+SAILFISH_SVG2PNG.scales.2.5 = 2.5
+
+# Configures svg to png
+THEMENAME = sailfish-default
+

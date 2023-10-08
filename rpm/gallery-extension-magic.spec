@@ -9,7 +9,7 @@ Name:       gallery-extension-magic
 # << macros
 
 Summary:    Gallery plugin for automagic paths
-Version:    0.9.1
+Version:    0.9.2
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
@@ -21,6 +21,7 @@ Source101:  gallery-extension-magic-rpmlintrc
 Requires:   sailfish-components-gallery-qt5 >= 1.1.9
 BuildRequires:  qt5-qmake
 BuildRequires:  qt5-qttools-linguist
+BuildRequires:  sailfish-svg2png
 BuildRequires:  qml-rpm-macros
 
 %description
@@ -79,6 +80,7 @@ rm -rf %{buildroot}
 %license LICENSE
 %{_datadir}/jolla-gallery/mediasources/*.qml
 %{_datadir}/translations/*.qm
+%{_datadir}/themes/*/*/*/*/*.png
 %{_libdir}/qt5/qml/com/jolla/gallery/magic
 # >> files
 # << files

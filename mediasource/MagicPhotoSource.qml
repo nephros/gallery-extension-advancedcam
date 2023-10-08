@@ -83,8 +83,8 @@ import Nemo.FileManager 1.0
 MediaSource {
     id: root
 
-    title: qsTr("Magic")
-    //icon: StandardPaths.resolveImport("com.jolla.gallery.nextcloud.NextcloudGalleryIcon")
+    title: qsTr("MagicSources")
+    //icon: StandardPaths.resolveImport("com.jolla.gallery.magic.MagicGalleryIcon")
     model: sourceModel
     count: sourceModel.count
     ready: sourceModel.count > 0
@@ -98,6 +98,20 @@ MediaSource {
 
     property ConfigurationValue photoSources: ConfigurationValue {
         key: "/apps/jolla-gallery/extrapaths/pictures"
+        defaultValue: JSON.stringify([
+                {
+                    "displayName": "EMail",
+                    "path": "Downloads/mail_attachments"
+                },
+                {
+                    "displayName": "Album Art",
+                    "path": "Music"
+                },
+                {
+                    "displayName": "Downloaded",
+                    "path": "Downloads"
+                },
+        ])
     }
     Component.onCompleted: {
         var sources
