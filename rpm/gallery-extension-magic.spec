@@ -9,7 +9,7 @@ Name:       gallery-extension-magic
 # << macros
 
 Summary:    Gallery plugin for automagic paths
-Version:    0.9.2
+Version:    0.9.3
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2

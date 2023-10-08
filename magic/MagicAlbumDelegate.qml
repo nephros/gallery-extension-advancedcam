@@ -11,11 +11,13 @@ BackgroundItem {
     property alias albumName: dirItem.title
     property int imageCount
 
-    MagicDirItem {
-        id: dirItem
+    height: Theme.itemSizeExtraLarge
 
+    MagicDirItem { id: dirItem
+
+        anchors.horizontalCenter: parent.horizontalCenter
         icon {
-            source: "images://theme/icon-m-folder-magic"
+            source: "image://theme/icon-m-folder-magic"
             width: icon.sourceSize.width
             height: icon.sourceSize.height
             fillMode: Image.PreserveAspectCrop
