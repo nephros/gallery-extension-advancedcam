@@ -73,6 +73,10 @@ rm -rf %{buildroot}
 %qmake5_install
 
 # >> install post
+pushd icons
+%qmake5
+%qmake5_install
+popd
 # << install post
 
 %files
