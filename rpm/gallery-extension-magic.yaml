@@ -1,6 +1,6 @@
 Name: gallery-extension-magic
 Summary: Gallery plugin for automagic paths
-Version: 0.9.3
+Version: 0.9.4
 Release: 0
 Group: Qt/Qt
 License: GPLv2
@@ -20,11 +20,10 @@ Description: |
      - Media
     Custom:
       Repo: %{url}
-    PackageIcon: %{url}/master/icons/%{name}.svg
     Screenshots:
-     - %{url}/raw/metadata/screenshots/screenshot1.png
-     - %{url}/raw/metadata/screenshots/screenshot2.png
-     - %{url}/raw/metadata/screenshots/screenshot3.png
+     - %{url}/raw/screenshots/Screenshot001.png
+     - %{url}/raw/screenshots/Screenshot002.png
+     - %{url}/raw/screenshots/Screenshot003.png
     Links:
       Homepage: %{url}
       Help: %{url}/discussions
