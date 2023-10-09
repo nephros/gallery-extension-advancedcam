@@ -1,0 +1,11 @@
+project = com.jolla.gallery.magic
+description = Gallery plugin for automagic paths
+
+include(common.qdocconf)
+depends += QtQuick Sailfish.Silica Sailfish.Pickers
+
+## Sources
+sourcedirs += ../../mediasource
+sourcedirs += ../../magic
+sources    += index.qdoc
+sources    += module.qdoc

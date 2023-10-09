@@ -1,0 +1,109 @@
+/*! \qmlmodule com.jolla.gallery.magic
+    \title Magic Gallery Extension
+
+    \section1 Description
+    A Gallery plugin (mediasource) which displays dynamic entries in the Jolla
+    Gallery application.
+
+    \section1 Usage
+
+    Usage for any user should be straightforward. After the app has been
+    installed, a new "Tile" called \c{MagicSources}will appear in the Gallery
+    app.
+
+    Tapping that will bring up a list of Albums representing the contents of
+    the (pre)configured source paths.
+
+    The Pulley Menu of that page will bring up the
+    \l{EditSourcePage}{MagicSources Editor} where users can modify the list of
+    sources.
+
+    \section1 Configuration
+
+    Apps or users can register paths using DConf, which the extension will show
+    in its sub-page.
+
+    The DConf key is \c{"/apps/jolla-gallery/extrapaths/pictures"} for
+    pictures, and \c{"/apps/jolla-gallery/extrapaths/videos"} for Videos.
+
+    The value of the key is a JSON string.
+
+    The JSON represents an array of objects.
+
+    Each object has the format:
+
+    \badcode
+    {
+        displayName: "My Apps Pictures",
+        path:        "Downloads/MyApp"
+    }
+    \endcode
+
+    \c{path} is a file-system location \b{relative to the user home}, e.g.
+    \c{Downloads/MyApp} for \c{/home/user/Downloads/MyApp}
+
+    \note Localisation for displayNames not currently not supported.
+
+    For example, you may set the key form a QML app using something like this:
+
+    \code
+    import QtQuick 2.6
+    import Nemo.Configuration 1.0
+
+    ConfigurationValue {
+        id: photoSources
+        key: "/apps/jolla-gallery/extrapaths/pictures"
+    }
+    function setPhotoSource(name, path) {
+        if (!!photoSources.value) {
+            const values = {};
+            try {
+                values = JSON.parse(photoSources.value);
+                const entry = {
+                    "displayName": name,
+                    "path": path
+                }
+                values.push(entry)
+                photoSources.value = JSON.stringify(values)
+            } catch (e) {
+                return
+            }
+        } else {
+            const entry = [
+                {
+                    "displayName": name,
+                    "path": path
+                },
+            ]
+            photoSources.value = JSON.stringify(entry)
+        }
+        photoSources.sync()
+    }
+
+    \endcode
+
+    \section1 Bugs, Features, Non-Features
+
+    \section2 Known issues
+
+    \list
+    \li Albums are not automatically refreshed when sources are changed in the Editor. Gallery app needs to be restarted.
+    \li Localization of display names of custom albums is not supported.
+    \endlist
+
+    \section2 Features that are out-of-scope
+
+    \section3 Creating Magic Sources as "first-class" Album Tiles in Gallery:
+
+    Due to the nature of how Gallery loads its Media Sources, the two-layer
+    approach is currently the best we can do.
+
+    \section3 Not displaying images covered in the standard Pictures or Videos:
+
+    Would require modifying the Gallery app itself. This could be done using a
+    Patch, but not by this software.
+
+    \note Could be implemented by modifying the Filters used in Gallerys
+    default media sources. Still, that is hard to do dynamically.
+*/
+
