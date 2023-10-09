@@ -20,7 +20,10 @@ INSTALLS += mediasource
 
 OTHER_FILES += $$files(rpm/*)
 
-# theme icons:
-SUBDIRS += icons
+QMAKE_CLEAN += -r icons/z*
+QMAKE_CLEAN += debug*.list
+QMAKE_CLEAN += elfbins.list
+QMAKE_CLEAN += documentation.list
+QMAKE_CLEAN += build.log
 
 include(translations/translations.pri)
