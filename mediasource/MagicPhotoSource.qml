@@ -17,7 +17,7 @@ MediaSource {
 
     title: qsTr("MagicSources")
     //icon: StandardPaths.resolveImport("com.jolla.gallery.magic.MagicGalleryIcon")
-    icon: "image://theme/icon-m-folder-magic"
+    icon: Icon { source: "image://theme/icon-m-folder-magic" }
     model: sourceModel
     count: sourceModel.count
     ready: sourceModel.count > 0
