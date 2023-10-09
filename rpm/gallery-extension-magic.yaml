@@ -21,9 +21,9 @@ Description: |
     Custom:
       Repo: %{url}
     Screenshots:
-     - %{url}/raw/screenshots/Screenshot001.png
-     - %{url}/raw/screenshots/Screenshot002.png
-     - %{url}/raw/screenshots/Screenshot003.png
+     - %{url}/raw/screenshots/Screenshot_001.jpg
+     - %{url}/raw/screenshots/Screenshot_002.jpg
+     - %{url}/raw/screenshots/Screenshot_003.jpg
     Links:
       Homepage: %{url}
       Help: %{url}/discussions
