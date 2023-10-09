@@ -5,10 +5,15 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import com.jolla.gallery 1.0
 
+/*! \qmltype MagicAlbumDelegate
+     \inqmlmodule com.jolla.gallery.magic
+*/
 BackgroundItem {
     id: root
 
+    /*! the name of the album, displayed on the left of the icon */
     property alias albumName: dirItem.title
+    /*! the number of images in of the album, displayed on the right of the icon */
     property int imageCount
 
     height: Theme.itemSizeExtraLarge

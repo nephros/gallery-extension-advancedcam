@@ -1,6 +1,10 @@
 import QtQuick 2.6
 import Sailfish.Silica 1.0
 
+/*! \qmltype MagicDirItem
+    \inqmlmodule com.jolla.gallery.magic
+    \internal
+*/
 Item {
     id: root
 

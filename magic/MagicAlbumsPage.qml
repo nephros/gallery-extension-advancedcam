@@ -7,6 +7,10 @@ import Sailfish.Gallery 1.0
 import com.jolla.gallery 1.0
 import QtDocGallery 5.0
 
+/*! \qmltype MagicAlbumsPage
+    \inqmlmodule com.jolla.gallery.magic
+    \inherits MediaSourcePage
+*/
 MediaSourcePage {
     id: root
 

@@ -3,11 +3,23 @@ import Sailfish.Silica 1.0
 import Sailfish.Pickers 1.0
 import Nemo.Configuration 1.0
 
+/*! \qmltype EditSourcePage
+    \inqmlmodule com.jolla.gallery.magic
+    \ingroup ui
+
+     A simple Editor for the source locations used by MagicPhotoSource and MagicVideoSource.
+*/
+
 Page { id: root
+    /*! \internal */
     property var psources
+    /*! \internal */
     property var vsources
-    property string sname
-    property string spath
+    /*! \internal */
+    property string newSourceName
+    /*! \internal */
+    property string newSourcePath
+    /*! \internal */
     readonly property var homeRE: new RegExp(/^\/home\/[^/]+\//)
 
     ConfigurationValue {
@@ -65,7 +77,7 @@ Page { id: root
         FolderPickerPage{
             showSystemFiles: false
             dialogTitle: qsTr("Source Path")
-            onSelectedPathChanged: root.spath = selectedPath.replace(homeRE,"")
+            onSelectedPathChanged: root.newSourcePath = selectedPath.replace(homeRE,"")
         }
     }
     SilicaFlickable {
@@ -91,21 +103,21 @@ Page { id: root
                 wrapMode: Text.Wrap
             }
             ValueButton {
-                value: root.spath ? "~/" + root.spath : "please select"; label: qsTr("Source Path")
+                value: root.newSourcePath ? "~/" + root.newSourcePath : "please select"; label: qsTr("Source Path")
                 onClicked: pageStack.push(dirPicker)
             }
-            TextField { text: root.sname; label: qsTr("Display Name")
-                onTextChanged: root.sname = text
+            TextField { text: root.newSourceName; label: qsTr("Display Name")
+                onTextChanged: root.newSourceName = text
                 EnterKey.onClicked: focus = false
             }
             ButtonLayout {
                 Button { text: "Set as Picture source"
-                    enabled: ((root.sname.length > 0) && (root.spath.length > 0))
-                    onClicked: { setPhotoSource(root.sname,root.spath); photoSources.sync }
+                    enabled: ((root.newSourceName.length > 0) && (root.newSourcePath.length > 0))
+                    onClicked: { setPhotoSource(root.newSourceName,root.newSourcePath); photoSources.sync }
                 }
                 Button { text: "Set as Video source"
-                    enabled: ((sname.length > 0) && (spath.length > 0))
-                    onClicked: { setVideoSource(sname,spath); videoSources.sync }
+                    enabled: ((newSourceName.length > 0) && (newSourcePath.length > 0))
+                    onClicked: { setVideoSource(newSourceName,newSourcePath); videoSources.sync }
                 }
             }
 
@@ -139,6 +151,7 @@ Page { id: root
     }
 
     Component.onCompleted: { reload() }
+    /*! \internal */
     function reload() {
         var s
         s = photoSources.value
@@ -146,11 +159,13 @@ Page { id: root
         s = videoSources.value
         try{ root.vsources = JSON.parse(s) } catch (e) {}
     }
+    /*! \internal */
     function removeSource(type, index) {
         if (type == "picture") removePicSource(index)
         if (type == "video")   removeVidSource(index)
         reload()
     }
+    /*! \internal */
     function removePicSource(index) {
         try {
             var existing = JSON.parse(photoSources.value);
@@ -160,6 +175,7 @@ Page { id: root
             root.psources = existing
         } catch (e) { }
     }
+    /*! \internal */
     function removeVidSource(index) {
         try {
             var existing = JSON.parse(videoSources.value);
@@ -169,6 +185,7 @@ Page { id: root
             root.vsources = existing
         } catch (e) { }
     }
+    /*! \internal */
     function setPhotoSource(name, path) {
         if (!!photoSources.value) {
             const existing = {};
