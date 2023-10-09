@@ -53,10 +53,6 @@ MediaSourcePage {
             }
         }
 
-        PullDownMenu {
-            MenuItem { text: qsTr("Edit Sources"); onClicked: pageStack.push("editor/EditSourcePage.qml") }
-        }
-
         VerticalScrollDecorator {}
     }
 }

@@ -1,0 +1,13 @@
+{
+    "entries": [
+    {
+        "path": "applications/jolla-gallery.desktop",
+        "title": "Gallery Magic",
+        "type": "application",
+        "icon": "image://theme/icon-m-gallery",
+        "params": {
+            "source": "/usr/share/jolla-settings/pages/jolla-gallery-magic/settings.qml"
+        }
+    }
+    ]
+}

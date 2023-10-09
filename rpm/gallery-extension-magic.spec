@@ -9,7 +9,7 @@ Name:       gallery-extension-magic
 # << macros
 
 Summary:    Gallery plugin for automagic paths
-Version:    0.9.4
+Version:    0.9.5
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
@@ -85,5 +85,7 @@ popd
 %{_datadir}/translations/*.qm
 %{_datadir}/themes/*/*/*/*/*.png
 %{_libdir}/qt5/qml/com/jolla/gallery/magic
+%{_datadir}/jolla-settings/entries/*.json
+%{_datadir}/jolla-settings/pages/*/*.qml
 # >> files
 # << files

@@ -18,6 +18,10 @@ mediasource.files = mediasource/*.qml
 mediasource.path = $$PREFIX/share/jolla-gallery/mediasources
 INSTALLS += mediasource
 
+settings.files = settings/*
+settings.path = $$PREFIX/share/jolla-settings
+INSTALLS += settings
+
 QMAKE_EXTRA_TARGETS += documentation
 documentation.commands = tools/makedocs
 
