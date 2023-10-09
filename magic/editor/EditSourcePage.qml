@@ -13,10 +13,38 @@ Page { id: root
     ConfigurationValue {
         id: photoSources
         key: "/apps/jolla-gallery/extrapaths/pictures"
+        defaultValue: JSON.stringify([
+                {
+                    "displayName": "EMail",
+                    "path": "Downloads/mail_attachments"
+                },
+                {
+                    "displayName": "Album Art",
+                    "path": "Music"
+                },
+                {
+                    "displayName": "Downloaded",
+                    "path": "Downloads"
+                },
+        ])
     }
     ConfigurationValue {
         id: videoSources
         key: "/apps/jolla-gallery/extrapaths/videos"
+        defaultValue: JSON.stringify([
+                {
+                    "displayName": "Camera Videos",
+                    "path": "Videos/Camera"
+                },
+                {
+                    "displayName": "Music Videos",
+                    "path": "Videos/Music"
+                },
+                {
+                    "displayName": "Downloaded",
+                    "path": "Downloads"
+                },
+        ])
     }
 
     Component { id: litem
