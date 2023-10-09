@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: CC0-1.0
+
 # include some Qt defaults
 # -- macros for QDoc commands
 include($QT_INSTALL_DOCS/global/macros.qdocconf)
