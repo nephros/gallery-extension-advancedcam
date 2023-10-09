@@ -12,9 +12,9 @@ import Nemo.Configuration 1.0
 
 Page { id: root
     /*! \internal */
-    property var psources
+    property var picSources
     /*! \internal */
-    property var vsources
+    property var vidSources
     /*! \internal */
     property string newSourceName
     /*! \internal */
@@ -22,8 +22,7 @@ Page { id: root
     /*! \internal */
     readonly property var homeRE: new RegExp(/^\/home\/[^/]+\//)
 
-    ConfigurationValue {
-        id: photoSources
+    ConfigurationValue { id: photoSources
         key: "/apps/jolla-gallery/extrapaths/pictures"
         defaultValue: JSON.stringify([
                 {
@@ -40,8 +39,7 @@ Page { id: root
                 },
         ])
     }
-    ConfigurationValue {
-        id: videoSources
+    ConfigurationValue { id: videoSources
         key: "/apps/jolla-gallery/extrapaths/videos"
         defaultValue: JSON.stringify([
                 {
@@ -59,7 +57,7 @@ Page { id: root
         ])
     }
 
-    Component { id: litem
+    Component { id: entryDelegate
         ListItem {
             property string type: ListView.view.type
             contentHeight: Theme.itemSizeSmall
@@ -92,22 +90,33 @@ Page { id: root
             Label {
                 width: parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
+                textFormat: Text.StyledText
                 text: qsTr("Here you can add or remove media sources.")
-                    + qsTr("Pick a path from your home, give it a name and set it as either video, or picture source.")
-                    + "<br />"
+                    + "&nbsp;"
+                    + qsTr("Pick a path from your home, give it a name and set it as either video or picture source.")
                     + "<br />"
                     + qsTr("Note that sources will only show up if their path exists.")
                     + "<br />"
+                    + "<br />"
                     + qsTr("You will have to restart the app after changing anything.")
                 color: Theme.secondaryHighlightColor
+                font.pixelSize: Theme.fontSizeSmall
                 wrapMode: Text.Wrap
             }
             ValueButton {
-                value: root.newSourcePath ? "~/" + root.newSourcePath : "please select"; label: qsTr("Source Path")
+                value:       root.newSourcePath ? "~/" + root.newSourcePath : "none selected"; label: qsTr("Source Path")
+                valueColor:  root.newSourcePath ? Theme.highlightColor : Theme.secondaryColor
+                description: root.newSourcePath ? qsTr("Path set") : qsTr("Pick a path")
                 onClicked: pageStack.push(dirPicker)
+                onValueChanged: {
+                    if ((root.newSourcePath) && (nameField.text.length <= 0)) nameField.focus = true
+                }
             }
-            TextField { text: root.newSourceName; label: qsTr("Display Name")
+            TextField { id: nameField
+                text: root.newSourceName
+                label: qsTr("Display Name")
                 onTextChanged: root.newSourceName = text
+                acceptableInput: ( (text.length > 2) && (text.length < 16) )
                 EnterKey.onClicked: focus = false
             }
             ButtonLayout {
@@ -121,31 +130,31 @@ Page { id: root
                 }
             }
 
-            Separator { width: ListView.view.width; color: Theme.secondaryColor }
-            ListView { id: pview
+            CollapsingHeader { text: qsTr("Picture Sources: %Ln", "", picView.count); target: picView
+                BackgroundItem { anchors.fill: parent; onClicked: parent.target.visible = !parent.target.visible }
+            }
+            ListView { id: picView
                 property string type: "picture"
                 width: parent.width
                 height: Theme.itemSizeSmall * Math.min (5, count)
-                header: SectionHeader { text: qsTr("Picture Sources: %Ln", "", pview.count) }
-                footer: Separator { width: ListView.view.width; color: Theme.secondaryColor }
-                footerPositioning: ListView.OverlayFooter
-                model: root.psources
-                visible: (!!root.psources) && count > 0
+                model: root.picSources
+                visible: (!!root.picSources) && count > 0
                 clip: true
-                delegate: litem
+                delegate: entryDelegate
+                onCountChanged: positionViewAtEnd()
             }
-            Separator { width: ListView.view.width; color: Theme.secondaryColor }
-            ListView { id: vview
+            CollapsingHeader { text: qsTr("Video Sources: %Ln", "", vidView.count); target: vidView
+                BackgroundItem { anchors.fill: parent; onClicked: parent.target.visible = !parent.target.visible }
+            }
+            ListView { id: vidView
                 property string type: "video"
                 width: parent.width
                 height: Theme.itemSizeSmall * Math.min (5, count)
-                header: SectionHeader { text: qsTr("Video Sources: %Ln", "", vview.count) }
-                footer: Separator { width: ListView.view.width; color: Theme.secondaryColor }
-                footerPositioning: ListView.OverlayFooter
-                model: root.vsources
-                visible: (!!root.vsources) && count > 0
+                model: root.vidSources
+                visible: (!!root.vidSources) && count > 0
                 clip: true
-                delegate: litem
+                delegate: entryDelegate
+                onCountChanged: positionViewAtEnd()
             }
         }
     }
@@ -155,9 +164,9 @@ Page { id: root
     function reload() {
         var s
         s = photoSources.value
-        try { root.psources = JSON.parse(s) } catch (e) {}
+        try { root.picSources = JSON.parse(s) } catch (e) {}
         s = videoSources.value
-        try{ root.vsources = JSON.parse(s) } catch (e) {}
+        try{ root.vidSources = JSON.parse(s) } catch (e) {}
     }
     /*! \internal */
     function removeSource(type, index) {
@@ -172,7 +181,7 @@ Page { id: root
             existing.splice(index,1)
             photoSources.value = JSON.stringify(existing)
             photoSources.sync()
-            root.psources = existing
+            root.picSources = existing
         } catch (e) { }
     }
     /*! \internal */
@@ -182,7 +191,7 @@ Page { id: root
             existing.splice(index,1)
             videoSources.value = JSON.stringify(existing)
             videoSources.sync()
-            root.vsources = existing
+            root.vidSources = existing
         } catch (e) { }
     }
     /*! \internal */
