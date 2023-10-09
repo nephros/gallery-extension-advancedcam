@@ -93,12 +93,12 @@
 
     \section2 Features that are out-of-scope
 
-    \section3 Creating Magic Sources as "first-class" Album Tiles in Gallery:
+    \b{Creating Magic Sources as "first-class" Album Tiles in Gallery:}
 
     Due to the nature of how Gallery loads its Media Sources, the two-layer
     approach is currently the best we can do.
 
-    \section3 Not displaying images covered in the standard Pictures or Videos:
+    \b{Not displaying images covered in the standard Pictures or Videos:}
 
     Would require modifying the Gallery app itself. This could be done using a
     Patch, but not by this software.

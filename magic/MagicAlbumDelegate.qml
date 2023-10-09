@@ -10,8 +10,11 @@ import com.jolla.gallery 1.0
 */
 BackgroundItem { id: root
 
+    /*! \internal */
     property string albumName
+    /*! \internal */
     property alias imagesModel: image.model
+    /*! \internal */
     property alias serviceIcon: image.serviceIcon
 
     enabled: imagesModel.count > 0
