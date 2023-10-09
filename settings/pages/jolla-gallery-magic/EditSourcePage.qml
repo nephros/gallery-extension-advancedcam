@@ -80,7 +80,7 @@ Page { id: root
     }
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: content.height - head.height
+        contentHeight: content.height + head.height
         PageHeader { id: head; title: qsTr("MagicSources Editor") }
         Column { id: content
             anchors.top: head.bottom
