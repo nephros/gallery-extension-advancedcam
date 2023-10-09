@@ -50,8 +50,9 @@ Page { id: root
     Component { id: litem
         ListItem {
             property string type: ListView.view.type
-            contentHeight: di.height
-            DetailItem { id: di
+            contentHeight: Theme.itemSizeSmall
+            DetailItem {
+                anchors.verticalCenter: parent.verticalCenter
                 label: modelData.displayName
                 value: "~/" + modelData.path
             }
@@ -69,17 +70,33 @@ Page { id: root
     }
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: content.height
+        contentHeight: content.height - head.height
+        PageHeader { id: head; title: qsTr("MagicSources Editor") }
         Column { id: content
-            width: parent.width
-            PageHeader { title: qsTr("MagicSources Editor") }
-            TextField { text: root.sname; label: qsTr("Display Name")
-                onTextChanged: root.sname = text
-                EnterKey.onClicked: focus = false
+            anchors.top: head.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - Theme.horizontalPageMargin
+            spacing: Theme.paddingMedium
+            Label {
+                width: parent.width
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Here you can add or remove media sources.")
+                    + qsTr("Pick a path from your home, give it a name and set it as either video, or picture source.")
+                    + "<br />"
+                    + "<br />"
+                    + qsTr("Note that sources will only show up if their path exists.")
+                    + "<br />"
+                    + qsTr("You will have to restart the app after changing anything.")
+                color: Theme.secondaryHighlightColor
+                wrapMode: Text.Wrap
             }
             ValueButton {
                 value: root.spath ? "~/" + root.spath : "please select"; label: qsTr("Source Path")
                 onClicked: pageStack.push(dirPicker)
+            }
+            TextField { text: root.sname; label: qsTr("Display Name")
+                onTextChanged: root.sname = text
+                EnterKey.onClicked: focus = false
             }
             ButtonLayout {
                 Button { text: "Set as Picture source"
@@ -92,28 +109,37 @@ Page { id: root
                 }
             }
 
-            SectionHeader { text: qsTr("Picture Sources: %Ln", "", pview.count) }
+            Separator { width: ListView.view.width; color: Theme.secondaryColor }
             ListView { id: pview
                 property string type: "picture"
                 width: parent.width
-                height: parent.width/2
+                height: Theme.itemSizeSmall * Math.min (5, count)
+                header: SectionHeader { text: qsTr("Picture Sources: %Ln", "", pview.count) }
+                footer: Separator { width: ListView.view.width; color: Theme.secondaryColor }
+                footerPositioning: ListView.OverlayFooter
                 model: root.psources
                 visible: (!!root.psources) && count > 0
+                clip: true
                 delegate: litem
             }
-            SectionHeader { text: qsTr("Video Sources: %Ln", "", vview.count) }
+            Separator { width: ListView.view.width; color: Theme.secondaryColor }
             ListView { id: vview
                 property string type: "video"
                 width: parent.width
-                height: parent.width/2
+                height: Theme.itemSizeSmall * Math.min (5, count)
+                header: SectionHeader { text: qsTr("Video Sources: %Ln", "", vview.count) }
+                footer: Separator { width: ListView.view.width; color: Theme.secondaryColor }
+                footerPositioning: ListView.OverlayFooter
                 model: root.vsources
                 visible: (!!root.vsources) && count > 0
+                clip: true
                 delegate: litem
             }
         }
     }
 
-    Component.onCompleted: {
+    Component.onCompleted: { reload() }
+    function reload() {
         var s
         s = photoSources.value
         try { root.psources = JSON.parse(s) } catch (e) {}
@@ -121,9 +147,9 @@ Page { id: root
         try{ root.vsources = JSON.parse(s) } catch (e) {}
     }
     function removeSource(type, index) {
-        console.debug("remove:", type,index)
         if (type == "picture") removePicSource(index)
-        if (type == "video") removeVidSource(index)
+        if (type == "video")   removeVidSource(index)
+        reload()
     }
     function removePicSource(index) {
         try {
@@ -144,7 +170,6 @@ Page { id: root
         } catch (e) { }
     }
     function setPhotoSource(name, path) {
-        console.debug("Value is:", photoSources.value);
         if (!!photoSources.value) {
             const existing = {};
             try {
@@ -154,15 +179,13 @@ Page { id: root
                     "path": path
                 }
                 existing.push(entry)
-                console.debug("Entry is:", JSON.stringify(entry, null, 2))
-                console.debug("Value is now:", JSON.stringify(existing, null, 2))
                 photoSources.value = JSON.stringify(existing)
             } catch (e) {
                 console.warn("Could not parse Entries")
                 return
             }
         } else {
-            console.debug("Key was empty, creating new")
+            console.info("Key was empty, creating new")
             const entry = [
                 {
                     "displayName": name,
@@ -171,6 +194,7 @@ Page { id: root
             ]
             photoSources.value = JSON.stringify(entry)
         }
+        reload()
     }
 }
 // vim: ft=javascript ts=4 st=4 sw=4 expandtab
