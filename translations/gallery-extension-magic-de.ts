@@ -4,33 +4,37 @@
 <context>
     <name>EditSourcePage</name>
     <message>
-        <location filename="../magic/editor/EditSourcePage.qml" line="72"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="70"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../magic/editor/EditSourcePage.qml" line="79"/>
-        <location filename="../magic/editor/EditSourcePage.qml" line="106"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="77"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="107"/>
         <source>Source Path</source>
         <translation>Quellpfad</translation>
     </message>
     <message>
-        <location filename="../magic/editor/EditSourcePage.qml" line="86"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="84"/>
         <source>MagicSources Editor</source>
         <translation>MagicSources Editor</translation>
     </message>
     <message>
-        <location filename="../magic/editor/EditSourcePage.qml" line="95"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="94"/>
         <source>Here you can add or remove media sources.</source>
         <translation>Füge hier Medienquellen hinzu, oder entferne sie.</translation>
     </message>
     <message>
-        <location filename="../magic/editor/EditSourcePage.qml" line="96"/>
         <source>Pick a path from your home, give it a name and set it as either video, or picture source.</source>
-        <translation>Wähle einen Pfad in deinem Heimverzeichnis, benamse es, und definiere es als entweder Foto- oder Videoquelle.</translation>
+        <translation type="vanished">Wähle einen Pfad in deinem Heimverzeichnis, benamse es, und definiere es als entweder Foto- oder Videoquelle.</translation>
     </message>
     <message>
-        <location filename="../magic/editor/EditSourcePage.qml" line="99"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="96"/>
+        <source>Pick a path from your home, give it a name and set it as either video or picture source.</source>
+        <translation type="vanished">Wähle einen Pfad in deinem Heimverzeichnis, benamse es, und definiere es als entweder Foto- oder Videoquelle.</translation>
+    </message>
+    <message>
+        <location filename="../magic/editor/EditSourcePage.qml" line="98"/>
         <source>Note that sources will only show up if their path exists.</source>
         <translation>NB: Quellen erscheinen nur, wenn ihr Pfad auch existiert.</translation>
     </message>
@@ -41,11 +45,21 @@
     </message>
     <message>
         <location filename="../magic/editor/EditSourcePage.qml" line="109"/>
+        <source>Path set</source>
+        <translation>Pfad gewählt</translation>
+    </message>
+    <message>
+        <location filename="../magic/editor/EditSourcePage.qml" line="109"/>
+        <source>Pick a path</source>
+        <translation>Wähle einen Pfad</translation>
+    </message>
+    <message>
+        <location filename="../magic/editor/EditSourcePage.qml" line="117"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message numerus="yes">
-        <location filename="../magic/editor/EditSourcePage.qml" line="129"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="133"/>
         <source>Picture Sources: %Ln</source>
         <translation>
             <numerusform>Bildquelle: eine</numerusform>
@@ -53,7 +67,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../magic/editor/EditSourcePage.qml" line="142"/>
+        <location filename="../magic/editor/EditSourcePage.qml" line="146"/>
         <source>Video Sources: %Ln</source>
         <translation>
             <numerusform>Videoquelle: eine</numerusform>
@@ -64,7 +78,7 @@
 <context>
     <name>MagicAlbumDelegate</name>
     <message numerus="yes">
-        <location filename="../magic/MagicAlbumDelegate.qml" line="49"/>
+        <location filename="../magic/MagicAlbumDelegate.qml" line="47"/>
         <source>%Ln Pictures</source>
         <translation>
             <numerusform>ein Bild</numerusform>
@@ -75,12 +89,12 @@
 <context>
     <name>MagicAlbumsPage</name>
     <message>
-        <location filename="../magic/MagicAlbumsPage.qml" line="23"/>
+        <location filename="../magic/MagicAlbumsPage.qml" line="26"/>
         <source>Magic Albums</source>
         <translation>Magic Alben</translation>
     </message>
     <message>
-        <location filename="../magic/MagicAlbumsPage.qml" line="57"/>
+        <location filename="../magic/MagicAlbumsPage.qml" line="58"/>
         <source>Edit Sources</source>
         <translation>Quellen bearbeiten</translation>
     </message>
