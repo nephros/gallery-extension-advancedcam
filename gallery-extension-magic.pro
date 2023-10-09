@@ -18,6 +18,9 @@ mediasource.files = mediasource/*.qml
 mediasource.path = $$PREFIX/share/jolla-gallery/mediasources
 INSTALLS += mediasource
 
+QMAKE_EXTRA_TARGETS += documentation
+documentation.commands = tools/makedocs
+
 OTHER_FILES += $$files(rpm/*)
 
 QMAKE_CLEAN += -r icons/z*
