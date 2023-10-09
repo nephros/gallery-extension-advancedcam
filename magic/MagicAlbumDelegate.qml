@@ -1,5 +1,5 @@
 // Copyright (c) Peter G. sailfish@nephros.org
-// SPDX-License-Identifier: GPLv2
+// SPDX-License-Identifier: GPL-2.0
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
