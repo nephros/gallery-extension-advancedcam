@@ -6,29 +6,50 @@ import Sailfish.Silica 1.0
 import com.jolla.gallery 1.0
 
 /*! \qmltype MagicAlbumDelegate
-     \inqmlmodule com.jolla.gallery.magic
+    \inqmlmodule com.jolla.gallery.magic
 */
-BackgroundItem {
-    id: root
+BackgroundItem { id: root
 
-    /*! the name of the album, displayed on the left of the icon */
-    property alias albumName: dirItem.title
-    /*! the number of images in of the album, displayed on the right of the icon */
-    property int imageCount
+    property string albumName
+    property alias imagesModel: image.model
+    property alias serviceIcon: image.serviceIcon
 
-    height: Theme.itemSizeExtraLarge
+    enabled: imagesModel.count > 0
+    opacity: enabled ? 1.0 : 0.6
 
-    MagicDirItem { id: dirItem
+    MagicSlideshowIcon {
+        id: image
+        model: root.imagesModel
+        highlighted: root.highlighted
+    }
 
-        anchors.horizontalCenter: parent.horizontalCenter
-        icon {
-            source: "image://theme/icon-m-folder-magic"
-            width: icon.sourceSize.width
-            height: icon.sourceSize.height
-            fillMode: Image.PreserveAspectCrop
+    Column {
+        anchors {
+            left: image.right
+            leftMargin: Theme.paddingLarge
+            right: parent.right
+            rightMargin: Theme.paddingMedium
+            verticalCenter: image.verticalCenter
         }
 
-        countText: root.imageCount
+        Label {
+            width: parent.width
+            text: albumName
+            font.family: Theme.fontFamilyHeading
+            font.pixelSize: Theme.fontSizeMedium
+            color: highlighted ? Theme.highlightColor : Theme.primaryColor
+            truncationMode: TruncationMode.Fade
+        }
+
+        Label {
+            width: parent.width
+
+            text: qsTr("%Ln Pictures","", imagesModel.count)
+            font.family: Theme.fontFamilyHeading
+            font.pixelSize: Theme.fontSizeSmall
+            color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+            truncationMode: TruncationMode.Fade
+        }
     }
 }
 

@@ -62,14 +62,25 @@
     </message>
 </context>
 <context>
+    <name>MagicAlbumDelegate</name>
+    <message numerus="yes">
+        <location filename="../magic/MagicAlbumDelegate.qml" line="49"/>
+        <source>%Ln Pictures</source>
+        <translation>
+            <numerusform>ein Bild</numerusform>
+            <numerusform>%Ln Bilder</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
     <name>MagicAlbumsPage</name>
     <message>
-        <location filename="../magic/MagicAlbumsPage.qml" line="22"/>
+        <location filename="../magic/MagicAlbumsPage.qml" line="23"/>
         <source>Magic Albums</source>
         <translation>Magic Alben</translation>
     </message>
     <message>
-        <location filename="../magic/MagicAlbumsPage.qml" line="54"/>
+        <location filename="../magic/MagicAlbumsPage.qml" line="57"/>
         <source>Edit Sources</source>
         <translation>Quellen bearbeiten</translation>
     </message>

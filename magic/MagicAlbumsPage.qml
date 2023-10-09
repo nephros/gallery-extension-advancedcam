@@ -14,32 +14,36 @@ import QtDocGallery 5.0
 MediaSourcePage {
     id: root
 
-    SilicaListView {
-        id: view
+    SilicaGridView { id: view
 
         anchors.fill: parent
+        cacheBuffer: Screen.height
+        model: root.model
+        cellHeight: Theme.itemSizeExtraLarge // fixed from delegate
+        cellWidth: Math.min(parent.width/2, parent.height/2)
+
         header: PageHeader {
             title: qsTr("Magic Albums")
         }
-        cacheBuffer: Screen.height
-        model: root.model
 
         delegate: MagicAlbumDelegate {
-            property string albumPath:  StandardPaths.home + "/" + path
+            width: GridView.view.cellWidth
+            height: GridView.view.cellHeight
+
             albumName: displayName.length > 0
                 ? displayName
                 : "Images"
-            imageCount: galleryModel.count
+            serviceIcon: "image://theme/icon-m-file-folder-magic"
             onClicked: {
                 var props = {
                     "title": displayName,
-                    "model": galleryModel,
+                    "model": imagesModel,
                     "userData": MediaSource.Photos
                 }
-                //pageStack.animatorPush("MagicImagesGridPage.qml", props)
                 pageStack.animatorPush(Qt.resolvedUrl("/usr/share/jolla-gallery/pages/GalleryGridPage.qml"), props)
             }
-            DocumentGalleryModel { id: galleryModel
+            property string albumPath:  StandardPaths.home + "/" + path
+            imagesModel: DocumentGalleryModel {
                 property string albumName: model.displayName
                 rootType: DocumentGallery.Image
                 properties: ["url", "mimeType", "title", "orientation", "dateTaken", "width", "height" ]

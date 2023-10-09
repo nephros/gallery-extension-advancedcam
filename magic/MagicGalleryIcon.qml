@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPLv2
 
 import QtQuick 2.0
+import Sailfish.Silica 1.0
 import com.jolla.gallery 1.0
 
 /*! \qmltype MagicGalleryIcon
@@ -11,7 +12,8 @@ import com.jolla.gallery 1.0
 
 MediaSourceIcon {
     Image {
-        anchors.fill: parent
+        anchors.centerIn: parent
+        width: Theme.iconSizeLarge
         source: "image://theme/icon-m-folder-magic"
         fillMode: Image.PreserveAspectFit
         clip: true
