@@ -3,6 +3,7 @@
 build.log
 translations/*.qm
 icons/*x*
+icons/z*
 Makefile
 .qmake.stash
-z*
+tools/qdoc/sailfish-qdoc-template
