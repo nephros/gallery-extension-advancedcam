@@ -47,7 +47,8 @@ BackgroundItem { id: root
         Label {
             width: parent.width
 
-            text: qsTr("%Ln Pictures","", imagesModel.count)
+            //% "%Ln Pictures"
+            text: qsTrId("jolla-gallery-magic-piccount","", imagesModel.count)
             font.family: Theme.fontFamilyHeading
             font.pixelSize: Theme.fontSizeSmall
             color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor

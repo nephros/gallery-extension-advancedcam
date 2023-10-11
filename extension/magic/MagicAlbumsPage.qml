@@ -23,7 +23,8 @@ MediaSourcePage {
         cellWidth: Math.min(parent.width/2, parent.height/2)
 
         header: PageHeader {
-            title: qsTr("Magic Albums")
+            //% "Magic Albums"
+            title: qsTrId("jolla-gallery-magic-header")
         }
 
         delegate: MagicAlbumDelegate {

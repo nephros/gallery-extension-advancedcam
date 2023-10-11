@@ -15,7 +15,8 @@ import Nemo.FileManager 1.0
 MediaSource {
     id: root
 
-    title: qsTr("MagicSources")
+    //% "MagicSources"
+    title: qsTrId("jolla-galllery-magic-title")
     icon: StandardPaths.resolveImport("com.jolla.gallery.magic.MagicGalleryIcon")
     model: sourceModel
     count: sourceModel.count
