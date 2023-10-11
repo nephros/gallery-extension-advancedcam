@@ -15,7 +15,9 @@ ApplicationSettings { id: root
 
     ButtonLayout {
         Button {
-            text: qsTr("MagicSources Editor")
+            //: "MagicSources Editor"
+            //% "MagicSources Editor"
+            text: qsTrId("MagicSources Editor")
             //onClicked: pageStack.push(Qt.resolvedUrl("EditSourcePage.qml"))
             property alias busy: bi.running
             enabled: !busy
