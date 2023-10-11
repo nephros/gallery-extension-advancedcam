@@ -112,7 +112,7 @@ Page { id: root
                     + qsTr("Note that sources will only show up if their path exists.")
                     + "<br />"
                     + "<br />"
-                    + qsTr("You will have to restart the app after changing anything.")
+                    + qsTr("You will have to restart the Gallery app after changing anything.")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeSmall
                 wrapMode: Text.Wrap
