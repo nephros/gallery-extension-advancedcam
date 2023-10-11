@@ -5,14 +5,15 @@ X-Nemo-Application-Type=silica-qt5
 NotShowIn=X-MeeGo
 Hidden=true
 Icon=icon-launcher-gallery
-Exec=/usr/bin/sailjail -p jolla-gallery.desktop /usr/bin/sailfish-qml gallery-extension-magic-settings
+Exec=sailfish-qml gallery-extension-magic-settings
 #X-Maemo-Service=com.jolla.gallery.magic
 #X-Maemo-Object-Path=/com/jolla/gallery/magic/ui
 #X-MaemoMethod=com.jolla.gallery.magic.ui.Open
 X-DBusActivatable=true
 
 [X-Sailjail]
-Permissions=UserDirs;MediaIndexing;Ambience;Privileged;Internet;Synchronization;RemovableMedia;Audio;Accounts
+Permissions=UserDirs;MediaIndexing;RemovableMedia;Audio
 OrganizationName=com.jolla
 ApplicationName=gallery.magic
-ExecDBus=sailfish-qml gallery-extension-magic-settings -prestart
+#ExecDBus=sailjail -p gallery-extension-magic-settings.desktop -- /usr/bin/sailfish-qml gallery-extension-magic-settings -prestart
+ExecDBus=/usr/bin/sailfish-qml gallery-extension-magic-settings -prestart

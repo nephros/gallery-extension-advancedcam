@@ -12,11 +12,21 @@ ApplicationSettings { id: root
         iface: "com.jolla.gallery.magic"
         path: "/com/jolla/gallery/magic/ui"
     }
+
     ButtonLayout {
         Button {
             text: qsTr("MagicSources Editor")
             //onClicked: pageStack.push(Qt.resolvedUrl("EditSourcePage.qml"))
-            onClicked: dbus.call("Open", [], function(){},function(r){console.warn("error:",r)} )
+            property alias busy: bi.running
+            enabled: !busy
+            BusyIndicator { id: bi
+                anchors.fill: parent
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            onClicked: {
+                busy = true
+                dbus.call("Open", [], function(){busy=false},function(r){console.warn("error:",r); busy=false} )
+            }
         }
     }
 }
