@@ -42,7 +42,8 @@ MediaSourcePage {
                 }
                 pageStack.animatorPush(Qt.resolvedUrl("/usr/share/jolla-gallery/pages/GalleryGridPage.qml"), props)
             }
-            property string albumPath:  StandardPaths.home + "/" + path
+            // we already tested for /run/media in mediasource so this should be ok
+            property string albumPath: (path.indexOf("/") == 0) ? path : StandardPaths.home + "/" + path
             imagesModel: DocumentGalleryModel {
                 property string albumName: model.displayName
                 rootType: DocumentGallery.Image

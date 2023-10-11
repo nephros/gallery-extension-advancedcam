@@ -63,8 +63,11 @@ MediaSource {
                 if (FileEngine.exists(StandardPaths.home + "/" + e.path)) {
                     console.info("Appending to source model:",  e.path)
                     sourceModel.append(e)
+                } else if (/^\/run\/media\/[^\/]+/.test(e.path) && (FileEngine.exists(e.path))) {
+                    console.info("Media path detected:",  e.path)
+                    sourceModel.append(e)
                 } else {
-                    console.warn("Specified path does not exist, not appending.")
+                    console.warn("Specified path does not exist or is not a media path, not appending.")
                 }
             })
         } else {

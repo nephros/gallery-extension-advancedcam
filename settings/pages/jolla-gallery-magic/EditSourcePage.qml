@@ -2,6 +2,7 @@ import QtQuick 2.6
 import Sailfish.Silica 1.0
 import Sailfish.Pickers 1.0
 import Nemo.Configuration 1.0
+import Nemo.FileManager 1.0
 
 /*! \qmltype EditSourcePage
     \inqmlmodule com.jolla.gallery.magic
@@ -21,6 +22,7 @@ Page { id: root
     property string newSourcePath
     /*! \internal */
     readonly property var homeRE: new RegExp(/^\/home\/[^/]+\//)
+    readonly property var mediaRE: new RegExp(/^\/run\/media\/[^/]+\//)
 
     ConfigurationValue { id: photoSources
         key: "/apps/jolla-gallery/extrapaths/pictures"
@@ -75,7 +77,19 @@ Page { id: root
         FolderPickerPage{
             showSystemFiles: false
             dialogTitle: qsTr("Source Path")
-            onSelectedPathChanged: root.newSourcePath = selectedPath.replace(homeRE,"")
+            FileInfo { id: info ; file: selectedPath }
+            onSelectedPathChanged: {
+                var p = selectedPath
+                // allow symlinks to /run/media, but resolve them to absolute path
+                if (info.isLink){ p = info.symlinkTarget }
+                if (mediaRE.test(p)) {
+                    root.newSourcePath = p
+                } else if (homeRE.test(p)) {
+                    root.newSourcePath = p.replace(homeRE,"")
+                } else {
+                    console.warn("Couldn't make sense of", p)
+                }
+            }
         }
     }
     SilicaFlickable {
