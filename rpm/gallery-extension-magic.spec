@@ -23,6 +23,7 @@ BuildRequires:  qt5-qmake
 BuildRequires:  qt5-qttools-linguist
 BuildRequires:  sailfish-svg2png
 BuildRequires:  qml-rpm-macros
+BuildRequires:  desktop-file-utils
 
 %description
 %{summary}.
@@ -68,6 +69,10 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 # >> install pre
+pushd editor
+%qmake5
+%qmake5_install
+popd
 # << install pre
 %qmake5_install
 
@@ -78,6 +83,10 @@ pushd icons
 popd
 # << install post
 
+desktop-file-install --delete-original       \
+  --dir %{buildroot}%{_datadir}/applications             \
+   %{buildroot}%{_datadir}/applications/*.desktop
+
 %files
 %defattr(-,root,root,-)
 %license LICENSE
@@ -87,5 +96,7 @@ popd
 %{_libdir}/qt5/qml/com/jolla/gallery/magic
 %{_datadir}/jolla-settings/entries/*.json
 %{_datadir}/jolla-settings/pages/*/*.qml
+%{_datadir}/%{name}-settings/*
+%{_datadir}/applications/*.desktop
 # >> files
 # << files

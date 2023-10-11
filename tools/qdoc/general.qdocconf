@@ -7,5 +7,6 @@ depends += QtQuick Sailfish.Silica Sailfish.Pickers
 ## Sources
 sourcedirs += ../../mediasource
 sourcedirs += ../../magic
+sourcedirs += ../../editor/qml
 sources    += index.qdoc
 sources    += module.qdoc
