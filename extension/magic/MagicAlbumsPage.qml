@@ -24,7 +24,7 @@ MediaSourcePage {
 
         header: PageHeader {
             //% "Magic Albums"
-            title: qsTrId("jolla-gallery-magic-header")
+            title: qsTrId("gallery-extension-magic_header")
         }
 
         delegate: MagicAlbumDelegate {

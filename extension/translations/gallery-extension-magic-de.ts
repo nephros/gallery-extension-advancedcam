@@ -4,11 +4,21 @@
 <context>
     <name></name>
     <message id="jolla-galllery-magic-title">
-        <location filename="../mediasource/MagicPhotoSource.qml" line="19"/>
         <source>MagicSources</source>
-        <translation>MagicSources</translation>
+        <translation type="vanished">MagicSources</translation>
     </message>
     <message id="jolla-gallery-magic-piccount" numerus="yes">
+        <source>%Ln Pictures</source>
+        <translation type="vanished">
+            <numerusform>ein Bild</numerusform>
+            <numerusform>%Ln Bilder</numerusform>
+        </translation>
+    </message>
+    <message id="jolla-gallery-magic-header">
+        <source>Magic Albums</source>
+        <translation type="vanished">Magic Alben</translation>
+    </message>
+    <message id="gallery-extension-magic_piccount" numerus="yes">
         <location filename="../magic/MagicAlbumDelegate.qml" line="51"/>
         <source>%Ln Pictures</source>
         <translation>
@@ -16,7 +26,7 @@
             <numerusform>%Ln Bilder</numerusform>
         </translation>
     </message>
-    <message id="jolla-gallery-magic-header">
+    <message id="gallery-extension-magic_header">
         <location filename="../magic/MagicAlbumsPage.qml" line="27"/>
         <source>Magic Albums</source>
         <translation>Magic Alben</translation>

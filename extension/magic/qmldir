@@ -1,0 +1,6 @@
+module com.jolla.gallery.magic
+plugin gallery-extension-magic
+MagicAlbumDelegate 1.0 MagicAlbumDelegate.qml
+MagicAlbumsPage 1.0 MagicAlbumsPage.qml
+MagicGalleryIcon 1.0 MagicGalleryIcon.qml
+MagicSlideshowIcon 1.0 MagicSlideshowIcon.qml

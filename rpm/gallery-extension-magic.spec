@@ -9,16 +9,18 @@ Name:       gallery-extension-magic
 # << macros
 
 Summary:    Gallery plugin for automagic paths
-Version:    0.9.6
+Version:    0.9.7
 Release:    0
 Group:      Qt/Qt
 License:    GPLv2
-BuildArch:  noarch
 URL:        https://github.com/nephros/gallery-extension-advancedcam
 Source0:    %{name}-%{version}.tar.gz
 Source100:  gallery-extension-magic.yaml
 Source101:  gallery-extension-magic-rpmlintrc
 Requires:   sailfish-components-gallery-qt5 >= 1.1.9
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  qt5-qmake
 BuildRequires:  qt5-qttools-linguist
 BuildRequires:  sailfish-svg2png

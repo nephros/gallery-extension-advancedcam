@@ -48,7 +48,7 @@ BackgroundItem { id: root
             width: parent.width
 
             //% "%Ln Pictures"
-            text: qsTrId("jolla-gallery-magic-piccount","", imagesModel.count)
+            text: qsTrId("gallery-extension-magic_piccount", imagesModel.count)
             font.family: Theme.fontFamilyHeading
             font.pixelSize: Theme.fontSizeSmall
             color: highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor

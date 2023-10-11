@@ -1,6 +1,6 @@
 Name: gallery-extension-magic
 Summary: Gallery plugin for automagic paths
-Version: 0.9.6
+Version: 0.9.7
 Release: 0
 Group: Qt/Qt
 License: GPLv2
@@ -44,14 +44,15 @@ PkgBR:
   - qt5-qttools-linguist
   - sailfish-svg2png
   - qml-rpm-macros
-#PkgConfigBR:
-#  - Qt5Core
-#  - Qt5Qml
+PkgConfigBR:
+  - Qt5Core
+  - Qt5Qml
+  - Qt5Gui
 #  - Qt5Quick
 #  - sailfishapp
 Configure: none
 Builder: qmake5
-BuildArch: noarch
+#BuildArch: noarch
 NoIconCache: true
 Files:
   - '%license LICENSE'
