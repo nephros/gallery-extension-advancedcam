@@ -40,6 +40,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/EditSourcePage.qml" line="121"/>
+        <source>none selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/EditSourcePage.qml" line="123"/>
         <source>Path set</source>
         <translation type="unfinished"></translation>

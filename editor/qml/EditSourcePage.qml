@@ -118,7 +118,7 @@ Page { id: root
                 wrapMode: Text.Wrap
             }
             ValueButton {
-                value:       root.newSourcePath ? "~/" + root.newSourcePath : "none selected"; label: qsTr("Source Path")
+                value:       root.newSourcePath ? "~/" + root.newSourcePath : qsTr("none selected"); label: qsTr("Source Path")
                 valueColor:  root.newSourcePath ? Theme.highlightColor : Theme.secondaryColor
                 description: root.newSourcePath ? qsTr("Path set") : qsTr("Pick a path")
                 onClicked: pageStack.push(dirPicker)

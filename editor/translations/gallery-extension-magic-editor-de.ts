@@ -27,7 +27,7 @@
     <message>
         <location filename="../qml/EditSourcePage.qml" line="110"/>
         <source>Pick a path from your home, give it a name and set it as either video or picture source.</source>
-        <translation>Wähle einen Pfad in deinem Heimverzeichnis, benamse es, und definiere es als entweder Foto- oder Videoquelle.</translation>
+        <translation>Wähle einen Pfad in deinem Heimverzeichnis, benamse ihn, und definiere ihn als entweder Foto- oder Videoquelle.</translation>
     </message>
     <message>
         <location filename="../qml/EditSourcePage.qml" line="112"/>
@@ -38,6 +38,11 @@
         <location filename="../qml/EditSourcePage.qml" line="115"/>
         <source>You will have to restart the Gallery app after changing anything.</source>
         <translation>Du musst die Gallerie-App neu starten nachdem du etwas geändert hast.</translation>
+    </message>
+    <message>
+        <location filename="../qml/EditSourcePage.qml" line="121"/>
+        <source>none selected</source>
+        <translation>keiner ausgewählt</translation>
     </message>
     <message>
         <source>You will have to restart the app after changing anything.</source>
@@ -80,7 +85,7 @@
     <message>
         <location filename="../qml/gallery-extension-magic-editor.qml" line="34"/>
         <source>MagicSources</source>
-        <translation type="unfinished">MagicSources</translation>
+        <translation>MagicSources</translation>
     </message>
 </context>
 <context>
