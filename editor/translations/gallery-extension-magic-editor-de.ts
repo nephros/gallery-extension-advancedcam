@@ -37,7 +37,7 @@
     <message>
         <location filename="../qml/EditSourcePage.qml" line="115"/>
         <source>You will have to restart the Gallery app after changing anything.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du musst die Gallerie-App neu starten nachdem du etwas geändert hast.</translation>
     </message>
     <message>
         <source>You will have to restart the app after changing anything.</source>
