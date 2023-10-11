@@ -2,11 +2,19 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
+    <name></name>
+    <message id="MagicSources Editor">
+        <location filename="../pages/jolla-gallery-magic/settings.qml" line="20"/>
+        <source>MagicSources Editor</source>
+        <extracomment>&quot;MagicSources Editor&quot;</extracomment>
+        <translation type="unfinished">MagicSources Editor</translation>
+    </message>
+</context>
+<context>
     <name>MagicAlbumDelegate</name>
     <message numerus="yes">
-        <location filename="../magic/MagicAlbumDelegate.qml" line="50"/>
         <source>%Ln Pictures</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>ein Bild</numerusform>
             <numerusform>%Ln Bilder</numerusform>
         </translation>
@@ -15,25 +23,22 @@
 <context>
     <name>MagicAlbumsPage</name>
     <message>
-        <location filename="../magic/MagicAlbumsPage.qml" line="26"/>
         <source>Magic Albums</source>
-        <translation>Magic Alben</translation>
+        <translation type="vanished">Magic Alben</translation>
     </message>
 </context>
 <context>
     <name>MagicPhotoSource</name>
     <message>
-        <location filename="../mediasource/MagicPhotoSource.qml" line="18"/>
         <source>MagicSources</source>
-        <translation>MagicSources</translation>
+        <translation type="vanished">MagicSources</translation>
     </message>
 </context>
 <context>
     <name>settings</name>
     <message>
-        <location filename="../settings/pages/jolla-gallery-magic/settings.qml" line="17"/>
         <source>MagicSources Editor</source>
-        <translation type="unfinished">MagicSources Editor</translation>
+        <translation type="obsolete">MagicSources Editor</translation>
     </message>
 </context>
 </TS>

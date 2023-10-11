@@ -7,4 +7,4 @@ icons/z*
 Makefile
 .qmake.stash
 tools/qdoc/sailfish-qdoc-template
-editor/translations/*.qm
+*/translations/*.qm

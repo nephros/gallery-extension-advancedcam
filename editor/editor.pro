@@ -1,11 +1,11 @@
 TEMPLATE = aux
-TARGET = gallery-extension-magic-settings
-CONFIG += sailfish_qml
+TARGET = gallery-extension-magic-editor
+CONFIG += sailfishapp_qml
 
-qml.path = $$PREFIX/share/$$TARGET
 qml.files = qml
+qml.path = $$PREFIX/share/$$TARGET
 
-desktop.files = *.desktop
+desktop.files = $${TARGET}.desktop
 desktop.path = $$PREFIX/share/applications
 
 INSTALLS += desktop qml
@@ -17,6 +17,6 @@ lupdate_only {
 }
 
 TRANSLATIONS += translations/$${TARGET}-en.ts \
-	translations/$${TARGET}-de.ts
+                translations/$${TARGET}-de.ts
 
 include(translations/translations.pri)

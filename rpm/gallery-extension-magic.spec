@@ -69,18 +69,10 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 # >> install pre
-pushd editor
-%qmake5
-%qmake5_install
-popd
 # << install pre
 %qmake5_install
 
 # >> install post
-pushd icons
-%qmake5
-%qmake5_install
-popd
 # << install post
 
 desktop-file-install --delete-original       \
@@ -95,8 +87,8 @@ desktop-file-install --delete-original       \
 %{_datadir}/themes/*/*/*/*/*.png
 %{_libdir}/qt5/qml/com/jolla/gallery/magic
 %{_datadir}/jolla-settings/entries/*.json
-%{_datadir}/jolla-settings/pages/*/*.qml
-%{_datadir}/%{name}-settings/*
-%{_datadir}/applications/*.desktop
+%{_datadir}/jolla-settings/pages/*
+%{_datadir}/%{name}-editor
+%{_datadir}/applications/%{name}-editor.desktop
 # >> files
 # << files

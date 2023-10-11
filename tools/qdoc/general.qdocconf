@@ -5,8 +5,9 @@ include(common.qdocconf)
 depends += QtQuick Sailfish.Silica Sailfish.Pickers
 
 ## Sources
-sourcedirs += ../../mediasource
-sourcedirs += ../../magic
+sourcedirs += ../../extension/mediasource
+sourcedirs += ../../extension/magic
 sourcedirs += ../../editor/qml
+sourcedirs += ../../settings/pages/*/
 sources    += index.qdoc
 sources    += module.qdoc

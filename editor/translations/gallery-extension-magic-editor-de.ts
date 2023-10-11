@@ -36,8 +36,12 @@
     </message>
     <message>
         <location filename="../qml/EditSourcePage.qml" line="115"/>
+        <source>You will have to restart the Gallery app after changing anything.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>You will have to restart the app after changing anything.</source>
-        <translation>Du musst die App neu starten nachdem du etwas geändert hast.</translation>
+        <translation type="vanished">Du musst die App neu starten nachdem du etwas geändert hast.</translation>
     </message>
     <message>
         <location filename="../qml/EditSourcePage.qml" line="123"/>
@@ -72,11 +76,18 @@
     </message>
 </context>
 <context>
+    <name>gallery-extension-magic-editor</name>
+    <message>
+        <location filename="../qml/gallery-extension-magic-editor.qml" line="34"/>
+        <source>MagicSources</source>
+        <translation type="unfinished">MagicSources</translation>
+    </message>
+</context>
+<context>
     <name>gallery-extension-magic-settings</name>
     <message>
-        <location filename="../qml/gallery-extension-magic-settings.qml" line="30"/>
         <source>MagicSources</source>
-        <translation>MagicSources</translation>
+        <translation type="vanished">MagicSources</translation>
     </message>
 </context>
 </TS>
