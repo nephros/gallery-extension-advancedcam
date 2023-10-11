@@ -22,17 +22,20 @@ ApplicationWindow { id: editor
             editor.activate()
         }
     }
-    initialPage: page
-    cover: coverpage
-    Component { id: page; EditSourcePage{} }
-    Component { id: coverpage ; CoverPlaceholder {
-        icon.source: "image://theme/icon-m-folder-magic"
-        text: qsTr("MagicSources")
-        Image {
-            anchors.fill: parent
-            source: "image://theme/graphic-cover-settings"
+    initialPage: Component { id: page; EditSourcePage{} }
+    cover: Component { id: coverpage ;
+        CoverBackground {
+            Image {
+                anchors.fill: parent
+                source: "image://theme/graphic-cover-settings"
+            }
+            CoverPlaceholder {
+                icon.source: "image://theme/icon-m-folder-magic"
+                text: qsTr("MagicSources")
+                forceFit: true
+            }
         }
-    }}
+    }
     Component.onCompleted: {
         var args = Qt.application.arguments;
         for (var i=0; i<args.length; i++) {
