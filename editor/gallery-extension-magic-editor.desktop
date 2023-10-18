@@ -2,7 +2,7 @@
 Type=Application
 Name=MagicSources Editor
 X-Nemo-Application-Type=silica-qt5
-NotShowIn=X-MeeGo
+NotShowIn=X-MeeGo;
 Hidden=true
 Icon=icon-launcher-gallery
 Exec=sailfish-qml gallery-extension-magic-editor
